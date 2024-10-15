@@ -1,0 +1,11 @@
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\bin\Debug\net8.0\SailorApp.Domain.deps.json
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\bin\Debug\net8.0\SailorApp.Domain.dll
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\bin\Debug\net8.0\SailorApp.Domain.pdb
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\SailorApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\SailorApp.Domain.AssemblyInfoInputs.cache
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\SailorApp.Domain.AssemblyInfo.cs
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\SailorApp.Domain.csproj.CoreCompileInputs.cache
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\SailorApp.Domain.dll
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\refint\SailorApp.Domain.dll
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\SailorApp.Domain.pdb
+E:\SailorERP\SailorERP\SailorApp.Application.Domain\obj\Debug\net8.0\ref\SailorApp.Domain.dll
