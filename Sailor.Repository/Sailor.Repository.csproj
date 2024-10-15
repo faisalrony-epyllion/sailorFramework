@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sailor.Application\Sailor.Application.csproj" />
-    <ProjectReference Include="..\Sailor.Repository\Sailor.Repository.csproj" />
+    <ProjectReference Include="..\SailorApp.Application.Domain\SailorApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>
