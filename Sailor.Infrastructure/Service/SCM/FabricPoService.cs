@@ -13,6 +13,7 @@ namespace Sailor.Infrastructure.Service.SCM
     public class FabricPoService : IFabricPoService
     {
         private IFabricPoRepository _fabricPoRepository;
+
         public FabricPoService(IFabricPoRepository fabricPoRepository)
         {
             _fabricPoRepository = fabricPoRepository;
