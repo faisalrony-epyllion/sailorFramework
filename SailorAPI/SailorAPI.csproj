@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sailor.Infrastructure\Sailor.Infrastructure.csproj" />
+    <ProjectReference Include="..\Sailor.Repository\Sailor.Repository.csproj" />
     <ProjectReference Include="..\SailorApp.Application.Domain\SailorApp.Domain.csproj" />
   </ItemGroup>
 
