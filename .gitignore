@@ -326,3 +326,4 @@ project.lock.json
 
 # Ignore macOS files
 .DS_Store
+/Sailor.Infrastructure/Sailor.Infrastructure.csproj
