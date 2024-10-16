@@ -1,4 +1,4 @@
-﻿using SailorApp.Domain.Entity.SCM;
+﻿using SailorApp.Domain.DTO.SCM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Sailor.Application.Interface
 {
-    public interface IFabricPoService:IService<tran_ScmPoEntity>
+    public interface IuserServicecs
     {
-
-       
+        Task<owin_user_DTO> GetSingleAsync(owin_user_DTO username);
     }
 }
+

@@ -1,5 +1,6 @@
 using Sailor.Application.Interface;
 using Sailor.Infrastructure.Service.SCM;
+using Sailor.Infrastructure.Service.USER;
 using Sailor.Repository.Implementation.SCM;
 using Sailor.Repository.Interface.SCM;
 
@@ -19,6 +20,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFabricPoService, FabricPoService>();
 builder.Services.AddScoped<IFabricPoRepository, FabricPoRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
