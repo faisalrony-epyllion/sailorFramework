@@ -1,5 +1,7 @@
 ﻿# Ignore Visual Studio temporary files, build results, and
 # build directories
+.gitignore
+.cr/
 .vs/
 *.vsidx
 
