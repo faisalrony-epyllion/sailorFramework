@@ -1,0 +1,39 @@
+﻿# Ignore Visual Studio temporary files, build results, and
+# build directories
+.vs/
+*.vsidx
+
+# Ignore object files
+obj/
+
+# Ignore bin directories
+bin/
+
+# Ignore build artifacts
+*.dll
+*.exe
+*.log
+
+# Ignore NuGet packages
+*.nupkg
+# Ignore package restore files
+packages/
+project.lock.json
+
+# Ignore user-specific files
+*.user
+*.suo
+*.rsuser
+.vscode/
+*.code-workspace
+
+# Ignore Rider IDE files
+.idea/
+
+# Ignore compiled files
+*.out
+*.o
+*.a
+
+# Ignore macOS files
+.DS_Store
