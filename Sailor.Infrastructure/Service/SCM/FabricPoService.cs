@@ -43,6 +43,6 @@ namespace Sailor.Infrastructure.Service.SCM
         {
             _fabricPoRepository.Delete(item);
 
-
+        }
     }
 }
