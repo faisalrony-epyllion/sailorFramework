@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sailor.Application.Interface;
+using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 
 namespace SailorAPI.Controllers
@@ -20,39 +21,45 @@ namespace SailorAPI.Controllers
             _IFabricPoService = FabricPo;
         }
 
-        [HttpGet(Name = "GetById")]
-        [Route("GetById")]
-        public tran_ScmPoEntity GetById(int id)
+ 
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
         {
-           return _IFabricPoService.GetById(id);
+            var result = await _IFabricPoService.GetAll();  
+            return Ok(result);  
         }
 
-        [HttpGet(Name = "GetAll")]
-        [Route("GetAll")]
-        public IEnumerable<tran_ScmPoEntity> GetAll()
+        [HttpGet("GetById/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            return _IFabricPoService.GetAll();
+            var result = await _IFabricPoService.GetById(id);
+
+            if (result == null)
+            {
+                return NotFound(); 
+            }
+
+            return Ok(result); 
         }
 
-        [HttpPost(Name = "Add")]
-        [Route("Add")]
+        [HttpPost("Add")]
         public void Add(tran_ScmPoEntity obj)
         {
             _IFabricPoService.Add(obj);
         }
 
-        [HttpPut(Name = "Update")]
-        [Route("Update")]
+        [HttpPut("Update")]
         public void Update(tran_ScmPoEntity obj)
         {
             _IFabricPoService.Update(obj);
         }
 
-        [HttpPut(Name = "Delete")]
-        [Route("Delete")]
+        [HttpPut("Delete")]
         public void Delete(tran_ScmPoEntity obj)
         {
             _IFabricPoService.Delete(obj);
         }
-    }
+
+       
+     }
 }

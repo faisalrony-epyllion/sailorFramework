@@ -10,7 +10,9 @@ namespace Sailor.Application.Interface
     public interface IFabricPoService:IService<tran_ScmPoEntity>
     {
         void Add(tran_ScmPoEntity item);
-        tran_ScmPoEntity GetById(int id);
-        IEnumerable<tran_ScmPoEntity> GetAll();
+        void Update(tran_ScmPoEntity item);
+        void Delete(tran_ScmPoEntity item);
+        Task<tran_ScmPoEntity> GetById(int id);
+        Task<IEnumerable<tran_ScmPoEntity>> GetAll();
     }
 }

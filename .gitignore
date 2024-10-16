@@ -1,4 +1,10 @@
-﻿################################################################################
+﻿# Ignore Visual Studio temporary files, build results, and
+# build directories
+.gitignore
+.cr/
+.vs/
+*.vsidx
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -286,3 +292,37 @@
 /SailorAPP/bin/Debug/net8.0/ko-KR/Humanizer.resources.dll
 /SailorAPP/bin/Debug/net8.0/ku/Humanizer.resources.dll
 /SailorAPP/bin/Debug/net8.0/lv/Humanizer.resources.dll
+# Ignore object files
+obj/
+
+# Ignore bin directories
+bin/
+
+# Ignore build artifacts
+*.dll
+*.exe
+*.log
+
+# Ignore NuGet packages
+*.nupkg
+# Ignore package restore files
+packages/
+project.lock.json
+
+# Ignore user-specific files
+*.user
+*.suo
+*.rsuser
+.vscode/
+*.code-workspace
+
+# Ignore Rider IDE files
+.idea/
+
+# Ignore compiled files
+*.out
+*.o
+*.a
+
+# Ignore macOS files
+.DS_Store
