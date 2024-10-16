@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sailor.Application.Interface;
+using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 
 namespace SailorAPI.Controllers
@@ -20,18 +21,25 @@ namespace SailorAPI.Controllers
             _IFabricPoService = FabricPo;
         }
 
-        [HttpGet("GetById")]
-        public tran_ScmPoEntity GetById(int id)
-        {
-           return _IFabricPoService.GetById(id);
-        }
-
  
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _IFabricPoService.GetAll();  
             return Ok(result);  
+        }
+
+        [HttpGet("GetById/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _IFabricPoService.GetById(id);
+
+            if (result == null)
+            {
+                return NotFound(); 
+            }
+
+            return Ok(result); 
         }
 
         [HttpPost("Add")]
@@ -51,5 +59,7 @@ namespace SailorAPI.Controllers
         {
             _IFabricPoService.Delete(obj);
         }
-    }
+
+       
+     }
 }

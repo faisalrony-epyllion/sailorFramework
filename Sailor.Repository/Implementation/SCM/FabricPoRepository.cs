@@ -50,9 +50,14 @@ namespace Sailor.Repository.Implementation.SCM
         }
 
 
-        public tran_ScmPoEntity GetById(int id)
+        public async Task<tran_ScmPoEntity> GetById(int id)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM public.tran_scm_po WHERE po_id = @Id";
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                return await connection.QueryFirstOrDefaultAsync<tran_ScmPoEntity>(query, new { Id = id });
+            }
         }
 
         public void Update(tran_ScmPoEntity entity)

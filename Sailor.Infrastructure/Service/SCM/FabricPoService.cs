@@ -24,9 +24,9 @@ namespace Sailor.Infrastructure.Service.SCM
             _fabricPoRepository.Add(item);
         }
 
-        public tran_ScmPoEntity GetById(int id)
+        public async Task<tran_ScmPoEntity> GetById(int id)
         {
-           return _fabricPoRepository.GetById(id);
+            return await _fabricPoRepository.GetById(id);  
         }
 
         public async Task<IEnumerable<tran_ScmPoEntity>> GetAll()

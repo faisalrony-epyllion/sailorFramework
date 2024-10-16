@@ -13,7 +13,7 @@ namespace Sailor.Repository.Interface
         void Update(T entity);
         void Delete(T entity);
         Task<IEnumerable<T>> GetAll();
-        T GetById(int id);
+       Task<T> GetById(int id);
 
     }
 }

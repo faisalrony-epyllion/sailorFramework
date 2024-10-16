@@ -20,11 +20,11 @@ namespace Sailor.Repository.Interface.SCM
         }
 
 
-        public tran_ScmPoEntity GetById(int id)
-        {
-            throw new NotImplementedException();
+        //public tran_ScmPoEntity GetById(int id)
+        //{
+        //    throw new NotImplementedException();
 
-        }
+        //}
 
 
         public void Update(tran_ScmPoEntity entity)
