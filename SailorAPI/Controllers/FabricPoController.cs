@@ -20,31 +20,32 @@ namespace SailorAPI.Controllers
             _IFabricPoService = FabricPo;
         }
 
-        [HttpGet]       
+        [HttpGet("GetById")]
         public tran_ScmPoEntity GetById(int id)
         {
            return _IFabricPoService.GetById(id);
         }
 
-        [HttpGet] 
+        [HttpGet("GetAll")]
         public IEnumerable<tran_ScmPoEntity> GetAll()
         {
             return _IFabricPoService.GetAll();
         }
 
-        [HttpPost]       
+        
+        [HttpPost("Add")]
         public void Add(tran_ScmPoEntity obj)
         {
             _IFabricPoService.Add(obj);
         }
 
-        [HttpPut]   
+        [HttpPut("Update")]
         public void Update(tran_ScmPoEntity obj)
         {
             _IFabricPoService.Update(obj);
         }
 
-        [HttpPut]        
+        [HttpPut("Delete")]
         public void Delete(tran_ScmPoEntity obj)
         {
             _IFabricPoService.Delete(obj);
