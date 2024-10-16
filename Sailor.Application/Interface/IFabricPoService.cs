@@ -13,6 +13,6 @@ namespace Sailor.Application.Interface
         void Update(tran_ScmPoEntity item);
         void Delete(tran_ScmPoEntity item);
         tran_ScmPoEntity GetById(int id);
-        IEnumerable<tran_ScmPoEntity> GetAll();
+        Task<IEnumerable<tran_ScmPoEntity>> GetAll();
     }
 }

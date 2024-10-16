@@ -5,6 +5,12 @@ using Sailor.Repository.Interface.SCM;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
+
 // Add services to the container.
 
 builder.Services.AddControllers();

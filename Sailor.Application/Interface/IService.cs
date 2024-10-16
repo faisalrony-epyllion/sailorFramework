@@ -15,6 +15,6 @@ namespace Sailor.Application.Interface
 
         void Delete(T item);
         T GetById(int id);
-        IEnumerable<T> GetAll();
+       Task <IEnumerable<T>> GetAll();
     }
 }

@@ -26,13 +26,14 @@ namespace SailorAPI.Controllers
            return _IFabricPoService.GetById(id);
         }
 
+ 
         [HttpGet("GetAll")]
-        public IEnumerable<tran_ScmPoEntity> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return _IFabricPoService.GetAll();
+            var result = await _IFabricPoService.GetAll();  
+            return Ok(result);  
         }
 
-        
         [HttpPost("Add")]
         public void Add(tran_ScmPoEntity obj)
         {
