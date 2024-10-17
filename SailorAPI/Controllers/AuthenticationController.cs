@@ -1,13 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
 using Sailor.Application.Interface;
-using Sailor.Infrastructure.Service.SCM;
 using SailorAPI.Utils;
 using SailorApp.Domain.DTO.SCM;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace SailorAPI.Controllers
 {

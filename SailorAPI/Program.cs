@@ -8,6 +8,7 @@ using Sailor.Repository.Implementation.USER;
 using Sailor.Repository.Interface.SCM;
 using Sailor.Repository.Interface.USER;
 using SailorAPI.Utils;
+using SailorAPI.API.Extension;
 using System.Text;
 using Sailor.Infrastructure;
 using Sailor.Repository.Helper;
@@ -51,8 +52,8 @@ builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructure();
-builder.Services.AddScoped<GenerateToken>();
-builder.Services.AddScoped<VerifyPassword>();
+
+builder.Services.AddApplication();
 
 builder.Services.AddCors(options =>
 {
