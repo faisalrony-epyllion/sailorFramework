@@ -12,7 +12,7 @@ namespace SailorApp.Domain.DTO.SCM
         //public Int64? userid { get; set; }
     
         public string user_name { get; set; }
-       
-      
+
+        public string password { get; set; }
     }
 }
