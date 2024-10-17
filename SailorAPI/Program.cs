@@ -9,6 +9,8 @@ using Sailor.Repository.Interface.SCM;
 using Sailor.Repository.Interface.USER;
 using SailorAPI.Utils;
 using System.Text;
+using Sailor.Infrastructure;
+using Sailor.Repository.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,11 +48,9 @@ builder.Services.AddAuthentication(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IFabricPoService, FabricPoService>();
-builder.Services.AddScoped<IFabricPoRepository, FabricPoRepository>();
-builder.Services.AddScoped<IuserServicecs, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddInfrastructure();
 builder.Services.AddScoped<GenerateToken>();
+builder.Services.AddScoped<VerifyPassword>();
 
 builder.Services.AddCors(options =>
 {
