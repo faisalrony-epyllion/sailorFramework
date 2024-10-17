@@ -946,50 +946,103 @@ function buildColumn_def(arrlength,hideFirstColumn) {
     });
     return columnDefs;
 }
-function initialize_datatable(table) {
+//function initialize_datatable(table) {
 
+//    dt_source = $(table.tableId).DataTable({
+//        layout: {
+//            top2End: {
+//                search: {
+//                    placeholder: table.placeholder,
+
+//                },
+
+//                buttons: [
+//                    {
+//                        text: table.btn_text,
+//                        className: table.btn_class_name,
+//                        action: function (e, dt, node, config) {
+
+//                            $(table.filterId).val('');
+//                            $(table.tableId).DataTable().search('').draw();
+//                        }
+//                    }
+//                ]
+//            },
+
+
+//            topEnd: null,
+
+//        },
+
+//        search: {
+//            return: true
+//        },
+//        //"ajax": $.fn.dataTable.json({ url: table.ajax_url, data: table.input }),
+//        "ajax": {
+//            url: table.ajax_url,
+//            type: "GET",
+//            data: table.input
+//        },
+//        scrollCollapse: true,
+//        responsive: true,
+//        "jQueryUI": true,
+//        columnDefs: buildColumn_def(table.columns.length, table.hideFirstColumn),
+//        createdRow: table.createdRow_func,
+
+//        //"columns": table.columns,
+//        "columns": table.columns.map(col => ({
+//            ...col,
+//            className: col.className || ''
+//        })),
+
+
+//    });
+//}
+
+
+function initialize_datatable(table) {
     dt_source = $(table.tableId).DataTable({
         layout: {
             top2End: {
                 search: {
                     placeholder: table.placeholder,
-
                 },
-
                 buttons: [
                     {
                         text: table.btn_text,
                         className: table.btn_class_name,
                         action: function (e, dt, node, config) {
-
                             $(table.filterId).val('');
                             $(table.tableId).DataTable().search('').draw();
                         }
                     }
                 ]
             },
-
-
             topEnd: null,
-
         },
-
         search: {
             return: true
         },
-        "ajax": $.fn.dataTable.json({ url: table.ajax_url, data: table.input }),
+        "ajax": {
+            url: table.ajax_url,
+            type: "GET",
+            data: table.input,
+            dataSrc: function (json) {
+                console.log(json); 
+                return json; 
+            }
+        },
         scrollCollapse: true,
         responsive: true,
         "jQueryUI": true,
         columnDefs: buildColumn_def(table.columns.length, table.hideFirstColumn),
         createdRow: table.createdRow_func,
-
-        "columns": table.columns,
-
-
+        "columns": table.columns.map(col => ({
+            ...col,
+            className: col.className || ''
+        })),
     });
 }
-
 
 function showHide(elem) {
     icon = '<i class="fa fa-save"></i> '; 

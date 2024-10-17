@@ -596,23 +596,58 @@
         });
     },
 
-    LoadFabricPoData: function () {
+    //LoadFabricPoData: function () {
 
+    //    var input = {
+    //        fiscal_year_id: $("#fiscal_year_id").val(),
+    //        event_id: $("#event_id").val(),
+    //        supplier_id: $("#sup_fil").val(),
+    //        delivery_unit_id: $("#delivery_unit_id").val()
+
+    //    };
+
+    //    var dt_search = {
+
+    //        filterId: '#dtPendingList_filter input[type=search]',
+    //        tableId: "#dtPendingList",
+    //        placeholder: 'Search PO',
+    //        btn_text: 'Clear Search',
+    //        ajax_url: '/FabricPo/GetFabricPoData',
+    //        input: input,
+    //        hideFirstColumn: false,
+    //        createdRow_func: function (row, data, dataIndex) {
+    //            $(row).attr('row_index', parseInt(data.row_index) - 1);
+    //            $(row).attr("po_id", data.po_id);
+    //        },
+    //        columns: [
+    //            { "data": "po_no", "name": "po_no", "autoWidth": true },
+    //            { "data": "pr_no", "name": "pr_no", "autoWidth": true },
+    //            { "data": "po_date", "name": "po_date", "autoWidth": true },
+    //            // { "data": "event_title", "name": "event_title", "autoWidth": true },
+    //            { "data": "supplier_name", "name": "supplier_name", "autoWidth": true },
+    //            { "data": "unit_name", "name": "unit_name", "autoWidth": true },
+    //            { "data": "datatablebuttonscode", "name": "datatablebuttonscode", "autoWidth": true }
+    //        ],
+    //        btn_class_name: 'btn btn-custom'
+    //    };
+    //    initialize_datatable(dt_search);
+    //},
+
+
+    LoadFabricPoData: function () {
         var input = {
             fiscal_year_id: $("#fiscal_year_id").val(),
             event_id: $("#event_id").val(),
             supplier_id: $("#sup_fil").val(),
             delivery_unit_id: $("#delivery_unit_id").val()
-
         };
 
         var dt_search = {
-
             filterId: '#dtPendingList_filter input[type=search]',
             tableId: "#dtPendingList",
             placeholder: 'Search PO',
             btn_text: 'Clear Search',
-            ajax_url: '/FabricPo/GetFabricPoData',
+            ajax_url: 'https://localhost:7102/api/FabricPo/GetAll', 
             input: input,
             hideFirstColumn: false,
             createdRow_func: function (row, data, dataIndex) {
@@ -620,18 +655,24 @@
                 $(row).attr("po_id", data.po_id);
             },
             columns: [
+                { "data": "pr_id", "name": "pr_id", "autoWidth": true },
+                { "data": "po_id", "name": "po_id", "autoWidth": true },
+                { "data": "event_id", "name": "event_id", "autoWidth": true },
+                { "data": "fiscal_year_id", "name": "fiscal_year_id", "autoWidth": true },
+                { "data": "item_structure_group_id", "name": "item_structure_group_id", "autoWidth": true },
                 { "data": "po_no", "name": "po_no", "autoWidth": true },
-                { "data": "pr_no", "name": "pr_no", "autoWidth": true },
                 { "data": "po_date", "name": "po_date", "autoWidth": true },
-                // { "data": "event_title", "name": "event_title", "autoWidth": true },
-                { "data": "supplier_name", "name": "supplier_name", "autoWidth": true },
-                { "data": "unit_name", "name": "unit_name", "autoWidth": true },
-                { "data": "datatablebuttonscode", "name": "datatablebuttonscode", "autoWidth": true }
+                { "data": "delivery_start_date", "name": "delivery_start_date", "autoWidth": true },
+                { "data": "delivery_end_date", "name": "delivery_end_date", "autoWidth": true },
+                { "data": "supplier_id", "name": "supplier_id", "autoWidth": true },
+                { "data": "delivery_unit", "name": "delivery_unit", "autoWidth": true }
             ],
             btn_class_name: 'btn btn-custom'
         };
+
         initialize_datatable(dt_search);
     },
+
 
     LoadFabricPoSubmittedData: function () {
 
