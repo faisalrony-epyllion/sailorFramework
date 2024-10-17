@@ -1,17 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Sailor.Application.Interface;
-using Sailor.Infrastructure.Service.SCM;
-using Sailor.Infrastructure.Service.USER;
-using Sailor.Repository.Implementation.SCM;
-using Sailor.Repository.Implementation.USER;
-using Sailor.Repository.Interface.SCM;
-using Sailor.Repository.Interface.USER;
-using SailorAPI.Utils;
 using SailorAPI.API.Extension;
 using System.Text;
-using Sailor.Infrastructure;
-using Sailor.Repository.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,8 +41,6 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddInfrastructure();
-
 builder.Services.AddApplication();
 
 builder.Services.AddCors(options =>
