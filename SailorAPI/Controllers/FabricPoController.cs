@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sailor.Application.Interface;
-using Sailor.Infrastructure.Service.USER;
-using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
-using System.Reflection;
 
 namespace SailorAPI.Controllers
 {
