@@ -38,6 +38,8 @@ namespace SailorAPI.Controllers
             // Generate JWT token
              var token = _generateToken.GenerateJwtToken(result.user_name);
 
+            _generateToken.SetJWTCookie(token);
+
             return Ok(new { token });
         }
 

@@ -9,6 +9,8 @@ using Sailor.Repository.Interface.SCM;
 using Sailor.Repository.Interface.USER;
 using SailorAPI.Utils;
 using System.Text;
+using Sailor.Infrastructure;
+using Sailor.Repository.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,25 +34,25 @@ builder.Services.AddAuthentication(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Issuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
     };
 });
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IFabricPoService, FabricPoService>();
-builder.Services.AddScoped<IFabricPoRepository, FabricPoRepository>();
-builder.Services.AddScoped<IuserServicecs, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddInfrastructure();
 builder.Services.AddScoped<GenerateToken>();
+builder.Services.AddScoped<VerifyPassword>();
 
 builder.Services.AddCors(options =>
 {
