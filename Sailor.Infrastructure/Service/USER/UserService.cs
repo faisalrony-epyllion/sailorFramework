@@ -4,6 +4,7 @@ using Sailor.Infrastructure.Service.SCM;
 using Sailor.Repository.Implementation.SCM;
 using Sailor.Repository.Implementation.USER;
 using Sailor.Repository.Interface.SCM;
+using Sailor.Repository.Interface.USER;
 using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 using System;
@@ -16,17 +17,16 @@ namespace Sailor.Infrastructure.Service.USER
 {
     public class UserService:IuserServicecs
     {
-        UserRepository _user;// new UserRepository();
-
-        public UserService(UserRepository user)
+        private IUserRepository _userRepository;
+        public UserService(IUserRepository userRepository)
         {
-            _user=user;
+            _userRepository = userRepository;
         }
 
 
         public async Task<owin_user_DTO> GetSingleAsync(owin_user_DTO username)
         {
-            return await _user.GetSingleAsync(username);
+            return await _userRepository.GetSingleAsync(username);
         }
 
     }

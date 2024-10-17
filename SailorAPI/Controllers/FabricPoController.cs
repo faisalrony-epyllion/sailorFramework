@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sailor.Application.Interface;
 using Sailor.Infrastructure.Service.USER;
@@ -8,6 +9,7 @@ using System.Reflection;
 
 namespace SailorAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -16,13 +18,13 @@ namespace SailorAPI.Controllers
 
         private readonly ILogger<FabricPoController> _logger;
         private IFabricPoService _IFabricPoService;
-        private IuserServicecs _userServicecs;
+       
 
         public FabricPoController(ILogger<FabricPoController> logger, IFabricPoService FabricPo, IuserServicecs iuserServicecs)
         {
             _logger = logger;
             _IFabricPoService = FabricPo;
-            _userServicecs = iuserServicecs;
+            
         }
 
  
@@ -64,22 +66,6 @@ namespace SailorAPI.Controllers
             _IFabricPoService.Delete(obj);
         }
 
-      
-
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(owin_user_DTO model)
-        {
-            //Authenticate user
-            var result = await _userServicecs.GetSingleAsync(model);
-
-            if (result == null)
-                return Unauthorized();
-
-           // Generate JWT token
-          // var token = _authenticationService.GenerateJwtToken(user.Id);
-
-            return Ok(new { result });
-        }
-
+ 
     }
 }

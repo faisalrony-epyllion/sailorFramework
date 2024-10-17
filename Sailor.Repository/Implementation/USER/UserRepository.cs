@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using Sailor.Repository.Helper;
+using Sailor.Repository.Interface.USER;
 using SailorApp.Domain.DTO.SCM;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Sailor.Repository.Implementation.USER
 {
-    public class UserRepository
+    public class UserRepository:IUserRepository
     {
         private readonly string _connectionString;
 
@@ -29,9 +30,10 @@ namespace Sailor.Repository.Implementation.USER
                 {
                     await connection.OpenAsync();
 
-                    string query = @"SELECT m.* FROM owin_user m WHERE m.user_name = @username";
+                    
+                    string query = @"SELECT m.* FROM owin_user m WHERE m.is_active = true AND m.user_name = @user_name";
 
-                    var data = await connection.QueryFirstOrDefaultAsync<owin_user_DTO>(query, new { user.user_name });
+                    var data = await connection.QueryFirstOrDefaultAsync<owin_user_DTO>(query, new { user_name = user.user_name });
 
                     return data;
                 }
@@ -41,6 +43,7 @@ namespace Sailor.Repository.Implementation.USER
                 throw new Exception("An error occurred while fetching the user data.", ex);
             }
         }
+
 
 
 
