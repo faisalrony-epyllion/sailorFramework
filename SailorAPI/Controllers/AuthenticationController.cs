@@ -29,13 +29,13 @@ namespace SailorAPI.Controllers
         public async Task<IActionResult> Login(owin_user_DTO model)
         {
             
-            //Authenticate user
+           
              var result = await _userServicecs.GetSingleAsync(model);
 
             if (result == null)
                 return Unauthorized();
 
-            // Generate JWT token
+          
              var token = _generateToken.GenerateJwtToken(result.user_name);
 
             

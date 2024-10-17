@@ -999,8 +999,9 @@ function buildColumn_def(arrlength,hideFirstColumn) {
 //    });
 //}
 
-
+var token='eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwMjEyNiIsIm5iZiI6MTcyOTE0ODAwMiwiZXhwIjoxNzI5MjM0NDAyLCJpYXQiOjE3MjkxNDgwMDIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcxMDIvIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.3GQlmWv7_nwXVTLPAP7HqxIStSw9561cNYLVzpBUnS_WQlUwtQWIHdytGNZSQQEwOI9gRbMLTG--vYScuhMfWg'
 function initialize_datatable(table) {
+    console.log(table);
     dt_source = $(table.tableId).DataTable({
         layout: {
             top2End: {
@@ -1027,6 +1028,9 @@ function initialize_datatable(table) {
             url: table.ajax_url,
             type: "GET",
             data: table.input,
+            "headers": {
+                "Authorization": "Bearer " + token 
+            },
             dataSrc: function (json) {
                 console.log(json); 
                 return json; 

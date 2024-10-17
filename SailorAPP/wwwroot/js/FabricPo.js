@@ -5,6 +5,7 @@
     listAttachments: [],
     added_listFPo: [],
     DeleteList: [],
+   
 
 
     closePopup: function () {
@@ -633,6 +634,7 @@
     //    initialize_datatable(dt_search);
     //},
 
+    
 
     LoadFabricPoData: function () {
         var input = {
@@ -649,7 +651,9 @@
             btn_text: 'Clear Search',
             ajax_url: 'https://localhost:7102/api/FabricPo/GetAll', 
             input: input,
-            hideFirstColumn: false,
+            
+           
+            
             createdRow_func: function (row, data, dataIndex) {
                 $(row).attr('row_index', parseInt(data.row_index) - 1);
                 $(row).attr("po_id", data.po_id);
