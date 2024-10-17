@@ -16,13 +16,20 @@ namespace SailorAPI.Utils
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             // var key = Encoding.UTF8.GetBytes("yourVeryStrongSecretKeyThatIsAtLeast32CharactersLong");
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+
+            var issuer = _configuration["Jwt:Issuer"];
+            var audience = _configuration["Jwt:Audience"];
+            var key = Encoding.ASCII.GetBytes
+            (_configuration["Jwt:Key"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim("id", userId) }),
                 Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                
+                SigningCredentials = new SigningCredentials  (new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature),
+                Issuer = issuer,
+                Audience = audience,
+
+
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
