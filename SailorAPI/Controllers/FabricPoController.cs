@@ -8,8 +8,8 @@ using SailorApp.Domain.Entity.SCM;
 using System.Reflection;
 
 namespace SailorAPI.Controllers
-{
-    [Authorize]
+{ 
+
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
