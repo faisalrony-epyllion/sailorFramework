@@ -8,9 +8,11 @@ namespace SailorAPI.Utils
     public class GenerateToken
     {
         private readonly IConfiguration _configuration;
-        public GenerateToken(IConfiguration configuration)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public GenerateToken(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
         public string GenerateJwtToken(string userId)
         {
@@ -33,6 +35,16 @@ namespace SailorAPI.Utils
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public void SetJWTCookie(string token)
+        {
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = DateTime.UtcNow.AddHours(3),
+            };
+            _httpContextAccessor.HttpContext.Response.Cookies.Append("jwtCookie", token, cookieOptions);
         }
 
     }
