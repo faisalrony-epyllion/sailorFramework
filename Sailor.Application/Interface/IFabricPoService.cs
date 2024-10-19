@@ -1,4 +1,5 @@
-﻿using SailorApp.Domain.Entity.SCM;
+﻿using SailorApp.Domain.DTO.SCM;
+using SailorApp.Domain.Entity.SCM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Sailor.Application.Interface
 {
     public interface IFabricPoService:IService<tran_ScmPoEntity>
     {
+        
 
-       
     }
 }

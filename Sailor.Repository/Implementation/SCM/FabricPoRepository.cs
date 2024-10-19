@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Dapper;
 using Npgsql;
 using Sailor.Repository.Helper;
+using SailorApp.Domain.DTO.SCM;
 
 namespace Sailor.Repository.Implementation.SCM
 {
@@ -25,7 +26,7 @@ namespace Sailor.Repository.Implementation.SCM
         {
             throw new NotImplementedException();
         }
- 
+
 
         public void Delete(tran_ScmPoEntity entity)
         {
@@ -43,11 +44,13 @@ namespace Sailor.Repository.Implementation.SCM
 
             using (var connection = new NpgsqlConnection(_connectionString))
             {
-                await connection.OpenAsync();  
-                var result = await connection.QueryAsync<tran_ScmPoEntity>(commandText);  
-                return result;  
+                await connection.OpenAsync();
+                var result = await connection.QueryAsync<tran_ScmPoEntity>(commandText);
+                return result;
             }
         }
+
+        
 
 
         public async Task<tran_ScmPoEntity> GetById(int id)

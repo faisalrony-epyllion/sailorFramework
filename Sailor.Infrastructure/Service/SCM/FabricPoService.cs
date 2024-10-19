@@ -5,6 +5,7 @@ using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Threading.Tasks;
+using SailorApp.Domain.DTO.SCM;
 
 namespace Sailor.Infrastructure.Service.SCM
 {
@@ -45,5 +46,6 @@ namespace Sailor.Infrastructure.Service.SCM
 
         }
 
+        
     }
 }

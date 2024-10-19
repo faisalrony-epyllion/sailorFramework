@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Sailor.Application.Interface;
+using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 
 namespace SailorAPI.Controllers
@@ -62,6 +64,8 @@ namespace SailorAPI.Controllers
             _IFabricPoService.Delete(obj);
         }
 
- 
+        
+
+
     }
 }
