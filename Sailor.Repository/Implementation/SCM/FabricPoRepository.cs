@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Dapper;
 using Npgsql;
 using Sailor.Repository.Helper;
+using SailorApp.Domain.Entity;
 
 namespace Sailor.Repository.Implementation.SCM
 {
@@ -46,6 +47,18 @@ namespace Sailor.Repository.Implementation.SCM
                 await connection.OpenAsync();  
                 var result = await connection.QueryAsync<tran_ScmPoEntity>(commandText);  
                 return result;  
+            }
+        }
+
+        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(int pageNumber, int pageSize) {
+
+            int offset = (pageNumber - 1) * pageSize;
+            string commandText = $"SELECT * FROM public.tran_scm_po  ORDER BY po_id LIMIT @PageSize";
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                return await connection.QueryAsync<tran_ScmPoEntity>(commandText, new { PageSize = pageSize, Offset = offset });
             }
         }
 

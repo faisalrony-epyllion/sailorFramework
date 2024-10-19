@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Sailor.Application.Interface;
 using SailorApp.Domain.Entity.SCM;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SailorAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -27,8 +28,16 @@ namespace SailorAPI.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
+
             var result = await _IFabricPoService.GetAll();  
             return Ok(result);  
+        }
+
+        [HttpGet("GetPageWiseData/{pagenumber}/{pagesize}")]
+        public async Task<IActionResult> GetPagination(int pagenumber, int pagesize)
+        {
+            var result = await _IFabricPoService.GetPagination(pagenumber, pagesize);
+            return Ok(result);
         }
 
         [HttpGet("GetById/{id}")]

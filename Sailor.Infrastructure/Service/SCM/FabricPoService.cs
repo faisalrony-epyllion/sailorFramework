@@ -5,6 +5,8 @@ using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Threading.Tasks;
+using Sailor.Repository.Interface;
+using SailorApp.Domain.Entity;
 
 namespace Sailor.Infrastructure.Service.SCM
 {
@@ -43,6 +45,11 @@ namespace Sailor.Infrastructure.Service.SCM
         {
             _fabricPoRepository.Delete(item);
 
+        }
+
+        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(int pageNumber, int pageSize)
+        {
+            return await _fabricPoRepository.GetPagination(pageNumber, pageSize);
         }
 
     }

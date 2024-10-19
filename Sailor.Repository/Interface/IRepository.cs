@@ -14,6 +14,7 @@ namespace Sailor.Repository.Interface
         void Delete(T entity);
         Task<IEnumerable<T>> GetAll();
        Task<T> GetById(int id);
+       Task<IEnumerable<T>> GetPagination(int pageNumber, int pageSize);
 
     }
 }
