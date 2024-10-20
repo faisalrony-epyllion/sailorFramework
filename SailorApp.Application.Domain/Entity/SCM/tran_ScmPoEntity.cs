@@ -16,7 +16,7 @@ namespace SailorApp.Domain.Entity.SCM
         public Int64? item_structure_group_id { get; set; }
 
         [Column("po_no")]
-        public String po_no { get; set; }
+        public string? po_no { get; set; }
 
         public DateTime? po_date { get; set; }
 
@@ -27,5 +27,7 @@ namespace SailorApp.Domain.Entity.SCM
         public Int64? supplier_id { get; set; }
 
         public Int64? delivery_unit { get; set; }
+
+
     }
 }

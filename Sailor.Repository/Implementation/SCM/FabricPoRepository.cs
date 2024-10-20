@@ -50,15 +50,15 @@ namespace Sailor.Repository.Implementation.SCM
             }
         }
 
-        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(int pageNumber, int pageSize) {
+        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(tran_ScmPoEntity obj) {
 
-            int offset = (pageNumber - 1) * pageSize;
+            int data = (obj.pageNumber - 1) * obj.pageSize;
             string commandText = $"SELECT * FROM public.tran_scm_po  ORDER BY po_id LIMIT @PageSize";
 
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-                return await connection.QueryAsync<tran_ScmPoEntity>(commandText, new { PageSize = pageSize, Offset = offset });
+                return await connection.QueryAsync<tran_ScmPoEntity>(commandText, new { PageSize = obj.pageSize, Data = data });
             }
         }
 

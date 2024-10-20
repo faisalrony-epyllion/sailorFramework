@@ -47,9 +47,9 @@ namespace Sailor.Infrastructure.Service.SCM
 
         }
 
-        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(int pageNumber, int pageSize)
+        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(tran_ScmPoEntity obj)
         {
-            return await _fabricPoRepository.GetPagination(pageNumber, pageSize);
+            return await _fabricPoRepository.GetPagination(obj);
         }
 
     }

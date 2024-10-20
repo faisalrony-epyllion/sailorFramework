@@ -19,7 +19,7 @@ namespace Sailor.Application.Interface
        
         Task<T> GetById(int id);
         Task <IEnumerable<T>> GetAll();
-        Task<IEnumerable<T>> GetPagination(int pageNumber, int pageSize);
+        Task<IEnumerable<T>> GetPagination(T item);
 
     }
 }

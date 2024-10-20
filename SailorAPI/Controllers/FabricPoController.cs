@@ -36,11 +36,15 @@ namespace SailorAPI.Controllers
         }
 
         [HttpGet("GetPageWiseData/{pagenumber}/{pagesize}")]
-        public async Task<IActionResult> GetPagination(int pagenumber, int pagesize)
+        public async Task<IActionResult> GetPagination(int pagenumber, int pagesize,[FromQuery] tran_ScmPoEntity obj)
         {
-            var result = await _IFabricPoService.GetPagination(pagenumber, pagesize);
+            obj.pageNumber = pagenumber; 
+            obj.pageSize = pagesize;
+
+            var result = await _IFabricPoService.GetPagination(obj);
             return Ok(result);
         }
+
 
         [HttpGet("GetById/{id}")]
         public async Task<IActionResult> GetById(int id)
