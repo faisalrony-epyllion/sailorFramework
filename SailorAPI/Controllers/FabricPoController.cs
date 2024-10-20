@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sailor.Application.Interface;
+using Sailor.Infrastructure.Service.SCM;
 using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SailorAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -36,11 +37,15 @@ namespace SailorAPI.Controllers
         }
 
         [HttpGet("GetPageWiseData/{pagenumber}/{pagesize}")]
-        public async Task<IActionResult> GetPagination(int pagenumber, int pagesize)
+        public async Task<IActionResult> GetPagination(int pagenumber, int pagesize,[FromQuery] tran_ScmPoEntity obj)
         {
-            var result = await _IFabricPoService.GetPagination(pagenumber, pagesize);
+            obj.pageNumber = pagenumber; 
+            obj.pageSize = pagesize;
+
+            var result = await _IFabricPoService.GetPagination(obj);
             return Ok(result);
         }
+
 
         [HttpGet("GetById/{id}")]
         public async Task<IActionResult> GetById(int id)
@@ -55,11 +60,25 @@ namespace SailorAPI.Controllers
             return Ok(result); 
         }
 
+       
         [HttpPost("Add")]
-        public void Add(tran_ScmPoEntity obj)
+        public async Task<IActionResult> Add([FromBody] tran_ScmPoEntity item)
         {
-            _IFabricPoService.Add(obj);
+            try
+            {
+                await _IFabricPoService.Add(item);
+                if (item == null)
+                {
+                    return BadRequest("Invalid data.");
+                }
+                return Ok(new { message = "Item added successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }     
         }
+
 
         [HttpPut("Update")]
         public void Update(tran_ScmPoEntity obj)

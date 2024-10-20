@@ -14,7 +14,9 @@ namespace SailorApp.Domain.Entity
         DateTime? ModifiedDate { get; set; }
         string CreatedBy { get; set; }
         string ModifiedBy { get; set; }
-        
+        public  int pageSize { get; set; }
+        public int pageNumber { get; set; }
+
     }
 
 }
