@@ -597,43 +597,7 @@
         });
     },
 
-    //LoadFabricPoData: function () {
-
-    //    var input = {
-    //        fiscal_year_id: $("#fiscal_year_id").val(),
-    //        event_id: $("#event_id").val(),
-    //        supplier_id: $("#sup_fil").val(),
-    //        delivery_unit_id: $("#delivery_unit_id").val()
-
-    //    };
-
-    //    var dt_search = {
-
-    //        filterId: '#dtPendingList_filter input[type=search]',
-    //        tableId: "#dtPendingList",
-    //        placeholder: 'Search PO',
-    //        btn_text: 'Clear Search',
-    //        ajax_url: '/FabricPo/GetFabricPoData',
-    //        input: input,
-    //        hideFirstColumn: false,
-    //        createdRow_func: function (row, data, dataIndex) {
-    //            $(row).attr('row_index', parseInt(data.row_index) - 1);
-    //            $(row).attr("po_id", data.po_id);
-    //        },
-    //        columns: [
-    //            { "data": "po_no", "name": "po_no", "autoWidth": true },
-    //            { "data": "pr_no", "name": "pr_no", "autoWidth": true },
-    //            { "data": "po_date", "name": "po_date", "autoWidth": true },
-    //            // { "data": "event_title", "name": "event_title", "autoWidth": true },
-    //            { "data": "supplier_name", "name": "supplier_name", "autoWidth": true },
-    //            { "data": "unit_name", "name": "unit_name", "autoWidth": true },
-    //            { "data": "datatablebuttonscode", "name": "datatablebuttonscode", "autoWidth": true }
-    //        ],
-    //        btn_class_name: 'btn btn-custom'
-    //    };
-    //    initialize_datatable(dt_search);
-    //},
-
+   
     
 
     LoadFabricPoData: function () {
