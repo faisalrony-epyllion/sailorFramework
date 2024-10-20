@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sailor.Application.Interface;
+using Sailor.Infrastructure.Service.SCM;
 using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SailorAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -59,11 +60,25 @@ namespace SailorAPI.Controllers
             return Ok(result); 
         }
 
+       
         [HttpPost("Add")]
-        public void Add(tran_ScmPoEntity obj)
+        public async Task<IActionResult> Add([FromBody] tran_ScmPoEntity item)
         {
-            _IFabricPoService.Add(obj);
+            try
+            {
+                await _IFabricPoService.Add(item);
+                if (item == null)
+                {
+                    return BadRequest("Invalid data.");
+                }
+                return Ok(new { message = "Item added successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }     
         }
+
 
         [HttpPut("Update")]
         public void Update(tran_ScmPoEntity obj)
