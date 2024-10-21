@@ -18,6 +18,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddControllers();
 
+
 // Configure JWT authentication
 builder.Services.AddAuthentication(options =>
 {
