@@ -36,12 +36,12 @@ namespace Sailor.Repository.Implementation.USER
                     
                     string query = @"SELECT user_name,password FROM owin_user m WHERE m.is_active = true AND m.user_name = @user_name";
 
-                    var data = await connection.QueryFirstOrDefaultAsync<owin_user_DTO>(query, new { user_name = user.user_name });
+                    var userData = await connection.QueryFirstOrDefaultAsync<owin_user_DTO>(query, new { user_name = user.user_name });
 
-                    bool isPasswordValid = _password.VerifyPasswordHash(user.password, data.password);
+                    bool isPasswordValid = _password.VerifyPasswordHash(user.password, userData.password);
                     if (isPasswordValid)
                     {
-                        return data; 
+                        return userData; 
                     }
                     return null;
                 }

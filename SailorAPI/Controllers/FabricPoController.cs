@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SailorAPI.Controllers
 {
-   [Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -36,12 +36,18 @@ namespace SailorAPI.Controllers
             return Ok(result);  
         }
 
-        [HttpGet("GetPageWiseData/{pagenumber}/{pagesize}")]
-        public async Task<IActionResult> GetPagination(int pagenumber, int pagesize,[FromQuery] tran_ScmPoEntity obj)
+        [HttpGet("GetAllFabricPO")]
+        public async Task<IActionResult> GetAllFabricPo([FromQuery] tran_scm_po_DTO item)
         {
-            obj.pageNumber = pagenumber; 
-            obj.pageSize = pagesize;
+            var result = await _IFabricPoService.GetAllFabricsPoAsync(item);
 
+            return Ok(result);
+        }
+
+        [HttpGet("GetPageWiseData")]
+        public async Task<IActionResult> GetPagination([FromQuery] tran_ScmPoEntity obj)
+        {
+          
             var result = await _IFabricPoService.GetPagination(obj);
             return Ok(result);
         }

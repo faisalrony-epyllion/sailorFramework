@@ -13,6 +13,8 @@ using SailorApp.Domain.Entity;
 using System.Data.Common;
 using NpgsqlTypes;
 using System.Data;
+using SailorApp.Domain.DTO.DTParameter;
+using SailorApp.Domain.DTO.SCM;
 
 namespace Sailor.Repository.Implementation.SCM
 {
@@ -24,11 +26,7 @@ namespace Sailor.Repository.Implementation.SCM
         {
             _connectionString = configuration.GetConnectionString(DatabaseConnection.PGConnectionString);
 
-        }
-        //public void Add(tran_ScmPoEntity entity)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        }  
 
 
         public async Task Delete(tran_ScmPoEntity entity)
@@ -53,6 +51,42 @@ namespace Sailor.Repository.Implementation.SCM
             }
         }
 
+        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(tran_scm_po_DTO obj)
+        {
+            try
+            {
+                string query = "SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
+              
+                using (var connection = new NpgsqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+
+                   
+                    var dataList =await  connection.QueryAsync<tran_scm_po_DTO>(query,
+                          new
+                          {
+                              row_index = obj.row_index,
+                              page_size = obj.page_size,
+                              fiscal_year = obj.fiscal_year_id,
+                              p_event_id = obj.event_id,
+                              supplier = obj.supplier_id,
+                              p_delivery_unit_id = obj.delivery_unit,
+                              list_type = 0,
+                              search_text = obj.dtsearch?.Value ?? null
+                          }
+                         );
+
+                    return dataList.ToList();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while fetching data.", ex);
+            }
+
+        }
         public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(tran_ScmPoEntity obj)
         {
 
@@ -119,9 +153,7 @@ namespace Sailor.Repository.Implementation.SCM
                         Command.Parameters.AddWithValue("in_vat_amount", NpgsqlDbType.Numeric, objtran_scm_po.vat_amount == null ? DBNull.Value : objtran_scm_po.vat_amount);
                         Command.Parameters.AddWithValue("in_discount_amount", NpgsqlDbType.Numeric, objtran_scm_po.discount_amount == null ? DBNull.Value : objtran_scm_po.discount_amount);
                         Command.Parameters.AddWithValue("in_final_amount", NpgsqlDbType.Bigint, objtran_scm_po.final_amount == null ? DBNull.Value : objtran_scm_po.final_amount);
-
                         Command.Parameters.AddWithValue("in_supplier_concern_person", NpgsqlDbType.Text, objtran_scm_po.supplier_concern_person == null ? DBNull.Value : objtran_scm_po.supplier_concern_person);
-
                         Command.Parameters.AddWithValue("in_supplier_address", NpgsqlDbType.Text, objtran_scm_po.supplier_address == null ? DBNull.Value : objtran_scm_po.supplier_address);
                         Command.Parameters.AddWithValue("in_po_details", NpgsqlDbType.Text, objtran_scm_po.po_details == null ? DBNull.Value : objtran_scm_po.po_details);
 

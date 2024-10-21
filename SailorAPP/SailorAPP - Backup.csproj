@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Compile Remove="scripts\**" />
+    <Content Remove="Models\**" />
+    <Content Remove="scripts\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="scripts\**" />
+    <None Remove="Models\**" />
+    <None Remove="scripts\**" />
+    <TypeScriptCompile Remove="scripts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\SCM\Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.6.2" />
+    <PackageReference Include="jQuery" Version="3.6.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.6.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+</Project>

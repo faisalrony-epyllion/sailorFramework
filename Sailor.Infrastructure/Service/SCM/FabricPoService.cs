@@ -9,6 +9,7 @@ using Sailor.Repository.Interface;
 using SailorApp.Domain.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SailorApp.Domain.DTO.SCM;
 
 namespace Sailor.Infrastructure.Service.SCM
 {
@@ -38,6 +39,11 @@ namespace Sailor.Infrastructure.Service.SCM
         public async Task<IEnumerable<tran_ScmPoEntity>> GetAll()
         {
             return await _fabricPoRepository.GetAll(); 
+        }
+
+        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(tran_scm_po_DTO obj)
+        {
+            return await _fabricPoRepository.GetAllFabricsPoAsync(obj);
         }
 
         public async Task Update(tran_ScmPoEntity item)
