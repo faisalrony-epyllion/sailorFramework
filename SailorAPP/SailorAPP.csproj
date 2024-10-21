@@ -8,9 +8,14 @@
 
   <ItemGroup>
     <Compile Remove="Models\**" />
+    <Compile Remove="scripts\**" />
     <Content Remove="Models\**" />
+    <Content Remove="scripts\**" />
     <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="scripts\**" />
     <None Remove="Models\**" />
+    <None Remove="scripts\**" />
+    <TypeScriptCompile Remove="scripts\**" />
   </ItemGroup>
 
   <ItemGroup>

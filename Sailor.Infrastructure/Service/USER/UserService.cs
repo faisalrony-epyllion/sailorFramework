@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Sailor.Infrastructure.Service.USER
 {
-    public class UserService:IuserServicecs
+    public class UserService:IUserServicecs
     {
         private IUserRepository _userRepository;
         public UserService(IUserRepository userRepository)

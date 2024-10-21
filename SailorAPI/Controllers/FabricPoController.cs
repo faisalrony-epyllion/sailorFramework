@@ -20,7 +20,7 @@ namespace SailorAPI.Controllers
         private IFabricPoService _IFabricPoService;
        
 
-        public FabricPoController(ILogger<FabricPoController> logger, IFabricPoService FabricPo, IuserServicecs iuserServicecs)
+        public FabricPoController(ILogger<FabricPoController> logger, IFabricPoService FabricPo, IUserServicecs iuserServicecs)
         {
             _logger = logger;
             _IFabricPoService = FabricPo;
