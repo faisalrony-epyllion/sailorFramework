@@ -12,7 +12,7 @@ namespace SailorAPI.Controllers
         private readonly ILogger<AuthenticationController> _logger;
         private IUserServicecs _userServicecs;
         private readonly GenerateToken _generateToken;
-        public AuthenticationController(ILogger<AuthenticationController> logger, IuserServicecs iuserServicecs, GenerateToken generateToken)
+        public AuthenticationController(ILogger<AuthenticationController> logger, IUserServicecs iuserServicecs, GenerateToken generateToken)
         {
             _logger = logger;
             _userServicecs = iuserServicecs;
