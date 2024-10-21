@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SailorAPI.Controllers
 {
-   [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -34,6 +34,14 @@ namespace SailorAPI.Controllers
 
             var result = await _IFabricPoService.GetAll();  
             return Ok(result);  
+        }
+
+        [HttpGet("GetAllFabricPO")]
+        public async Task<IActionResult> GetAllFabricPo([FromQuery] tran_scm_po_DTO item)
+        {
+            var result = await _IFabricPoService.GetAllFabricsPoAsync(item);
+
+            return Ok(result);
         }
 
         [HttpGet("GetPageWiseData/{pagenumber}/{pagesize}")]
