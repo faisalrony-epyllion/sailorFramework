@@ -2,7 +2,7 @@
 
 namespace Sailor.Application.Interface
 {
-    public interface IuserServicecs
+    public interface IUserServicecs
     {
         Task<owin_user_DTO> GetSingleAsync(owin_user_DTO username);
     }
