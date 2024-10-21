@@ -59,7 +59,7 @@ namespace Sailor.Repository.Implementation.SCM
         {
             try
             {
-                string query = $"SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
+                string query = "SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
               
                 using (var connection = new NpgsqlConnection(_connectionString))
                 {
@@ -76,7 +76,7 @@ namespace Sailor.Repository.Implementation.SCM
                               supplier = obj.supplier_id,
                               p_delivery_unit_id = obj.delivery_unit,
                               list_type = 0,
-                              search_text = obj.dtsearch?.Value
+                              search_text = obj.dtsearch?.Value ?? null
                           }
                          );
 
