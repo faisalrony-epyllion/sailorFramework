@@ -18,7 +18,7 @@ namespace SailorAPI.API.Extension
 
             service.AddScoped<IFabricPoService, FabricPoService>();
             service.AddScoped<IFabricPoRepository, FabricPoRepository>();
-            service.AddScoped<IuserServicecs, UserService>();
+            service.AddScoped<IUserServicecs, UserService>();
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<GenerateToken>();
             service.AddScoped<GenerateToken>();

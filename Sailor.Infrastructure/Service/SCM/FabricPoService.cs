@@ -5,6 +5,10 @@ using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Threading.Tasks;
+using Sailor.Repository.Interface;
+using SailorApp.Domain.Entity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Sailor.Infrastructure.Service.SCM
 {
@@ -19,9 +23,11 @@ namespace Sailor.Infrastructure.Service.SCM
             
         }
 
-        public void Add(tran_ScmPoEntity item)
+       
+        public async Task Add(tran_ScmPoEntity item)
         {
-            _fabricPoRepository.Add(item);
+            item.po_details = JArray.Parse(JsonConvert.SerializeObject(item.List_po_details)).ToString();
+            await _fabricPoRepository.Add(item);
         }
 
         public async Task<tran_ScmPoEntity> GetById(int id)
@@ -34,15 +40,20 @@ namespace Sailor.Infrastructure.Service.SCM
             return await _fabricPoRepository.GetAll(); 
         }
 
-        public void Update(tran_ScmPoEntity item)
+        public async Task Update(tran_ScmPoEntity item)
         {
            _fabricPoRepository.Update(item);
         }
 
-        public void Delete(tran_ScmPoEntity item)
+        public async Task Delete(tran_ScmPoEntity item)
         {
             _fabricPoRepository.Delete(item);
 
+        }
+
+        public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(tran_ScmPoEntity obj)
+        {
+            return await _fabricPoRepository.GetPagination(obj);
         }
 
     }

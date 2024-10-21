@@ -946,62 +946,11 @@ function buildColumn_def(arrlength,hideFirstColumn) {
     });
     return columnDefs;
 }
-//function initialize_datatable(table) {
 
-//    dt_source = $(table.tableId).DataTable({
-//        layout: {
-//            top2End: {
-//                search: {
-//                    placeholder: table.placeholder,
-
-//                },
-
-//                buttons: [
-//                    {
-//                        text: table.btn_text,
-//                        className: table.btn_class_name,
-//                        action: function (e, dt, node, config) {
-
-//                            $(table.filterId).val('');
-//                            $(table.tableId).DataTable().search('').draw();
-//                        }
-//                    }
-//                ]
-//            },
-
-
-//            topEnd: null,
-
-//        },
-
-//        search: {
-//            return: true
-//        },
-//        //"ajax": $.fn.dataTable.json({ url: table.ajax_url, data: table.input }),
-//        "ajax": {
-//            url: table.ajax_url,
-//            type: "GET",
-//            data: table.input
-//        },
-//        scrollCollapse: true,
-//        responsive: true,
-//        "jQueryUI": true,
-//        columnDefs: buildColumn_def(table.columns.length, table.hideFirstColumn),
-//        createdRow: table.createdRow_func,
-
-//        //"columns": table.columns,
-//        "columns": table.columns.map(col => ({
-//            ...col,
-//            className: col.className || ''
-//        })),
-
-
-//    });
-//}
 
 var token='eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwMjEyNiIsIm5iZiI6MTcyOTE0ODAwMiwiZXhwIjoxNzI5MjM0NDAyLCJpYXQiOjE3MjkxNDgwMDIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcxMDIvIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.3GQlmWv7_nwXVTLPAP7HqxIStSw9561cNYLVzpBUnS_WQlUwtQWIHdytGNZSQQEwOI9gRbMLTG--vYScuhMfWg'
 function initialize_datatable(table) {
-    console.log(table);
+   
     dt_source = $(table.tableId).DataTable({
         layout: {
             top2End: {
@@ -1032,7 +981,7 @@ function initialize_datatable(table) {
                 "Authorization": "Bearer " + token 
             },
             dataSrc: function (json) {
-                console.log(json); 
+                
                 return json; 
             }
         },
