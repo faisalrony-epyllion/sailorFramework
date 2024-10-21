@@ -13,6 +13,8 @@ using SailorApp.Domain.Entity;
 using System.Data.Common;
 using NpgsqlTypes;
 using System.Data;
+using SailorApp.Domain.DTO.DTParameter;
+using SailorApp.Domain.DTO.SCM;
 
 namespace Sailor.Repository.Implementation.SCM
 {
@@ -53,6 +55,41 @@ namespace Sailor.Repository.Implementation.SCM
             }
         }
 
+        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(tran_scm_po_DTO obj)
+        {
+            try
+            {
+                using (var connection = new NpgsqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    string query = $"SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
+
+                    var dataList =await  connection.QueryAsync<tran_scm_po_DTO>(query,
+                          new
+                          {
+                              row_index = obj.row_index,
+                              page_size = obj.page_size,
+                              fiscal_year = obj.fiscal_year_id,
+                              p_event_id = obj.event_id,
+                              supplier = obj.supplier_id,
+                              p_delivery_unit_id = obj.delivery_unit,
+                              list_type = 0,
+                              search_text = obj.dtsearch?.Value
+                          }
+                         );
+
+                    return dataList.ToList();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while fetching data.", ex);
+            }
+
+        }
         public async Task<IEnumerable<tran_ScmPoEntity>> GetPagination(tran_ScmPoEntity obj)
         {
 
