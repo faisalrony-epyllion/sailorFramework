@@ -7,19 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\SCM\Data\**" />
     <Compile Remove="Models\**" />
-    <Compile Remove="scripts\**" />
+    <Content Remove="Areas\SCM\Data\**" />
     <Content Remove="Models\**" />
-    <Content Remove="scripts\**" />
+    <EmbeddedResource Remove="Areas\SCM\Data\**" />
     <EmbeddedResource Remove="Models\**" />
-    <EmbeddedResource Remove="scripts\**" />
+    <None Remove="Areas\SCM\Data\**" />
     <None Remove="Models\**" />
-    <None Remove="scripts\**" />
-    <TypeScriptCompile Remove="scripts\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\SCM\Data\" />
+    <TypeScriptCompile Remove="Areas\SCM\Data\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,10 +23,6 @@
     <PackageReference Include="jQuery" Version="3.6.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10" />
-    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.6.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
   </ItemGroup>
 
