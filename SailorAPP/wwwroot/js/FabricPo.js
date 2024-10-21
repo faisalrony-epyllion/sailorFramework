@@ -601,11 +601,15 @@
     
 
     LoadFabricPoData: function () {
+        //var input = {
+        //    fiscal_year_id: $("#fiscal_year_id").val(),
+        //    event_id: $("#event_id").val(),
+        //    supplier_id: $("#sup_fil").val(),
+        //    delivery_unit_id: $("#delivery_unit_id").val()
+        //};
         var input = {
-            fiscal_year_id: $("#fiscal_year_id").val(),
-            event_id: $("#event_id").val(),
-            supplier_id: $("#sup_fil").val(),
-            delivery_unit_id: $("#delivery_unit_id").val()
+            pagesize: 10,
+            pagenumber: 1
         };
 
         var dt_search = {
@@ -657,7 +661,7 @@
             tableId: "#dtSubmittedList",
             placeholder: 'Search PO',
             btn_text: 'Clear Search',
-            ajax_url: '/FabricPo/GetFabricPoSubmittedData',
+            ajax_url: 'https://localhost:7102/api/FabricPo/GetAll', 
             input: input,
             hideFirstColumn: false,
             createdRow_func: function (row, data, dataIndex) {

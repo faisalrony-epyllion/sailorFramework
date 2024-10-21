@@ -26,11 +26,7 @@ namespace Sailor.Repository.Implementation.SCM
         {
             _connectionString = configuration.GetConnectionString(DatabaseConnection.PGConnectionString);
 
-        }
-        //public void Add(tran_ScmPoEntity entity)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        }  
 
 
         public async Task Delete(tran_ScmPoEntity entity)
@@ -157,9 +153,7 @@ namespace Sailor.Repository.Implementation.SCM
                         Command.Parameters.AddWithValue("in_vat_amount", NpgsqlDbType.Numeric, objtran_scm_po.vat_amount == null ? DBNull.Value : objtran_scm_po.vat_amount);
                         Command.Parameters.AddWithValue("in_discount_amount", NpgsqlDbType.Numeric, objtran_scm_po.discount_amount == null ? DBNull.Value : objtran_scm_po.discount_amount);
                         Command.Parameters.AddWithValue("in_final_amount", NpgsqlDbType.Bigint, objtran_scm_po.final_amount == null ? DBNull.Value : objtran_scm_po.final_amount);
-
                         Command.Parameters.AddWithValue("in_supplier_concern_person", NpgsqlDbType.Text, objtran_scm_po.supplier_concern_person == null ? DBNull.Value : objtran_scm_po.supplier_concern_person);
-
                         Command.Parameters.AddWithValue("in_supplier_address", NpgsqlDbType.Text, objtran_scm_po.supplier_address == null ? DBNull.Value : objtran_scm_po.supplier_address);
                         Command.Parameters.AddWithValue("in_po_details", NpgsqlDbType.Text, objtran_scm_po.po_details == null ? DBNull.Value : objtran_scm_po.po_details);
 
