@@ -59,12 +59,13 @@ namespace Sailor.Repository.Implementation.SCM
         {
             try
             {
+                string query = $"SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
+              
                 using (var connection = new NpgsqlConnection(_connectionString))
                 {
                     await connection.OpenAsync();
 
-                    string query = $"SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
-
+                   
                     var dataList =await  connection.QueryAsync<tran_scm_po_DTO>(query,
                           new
                           {

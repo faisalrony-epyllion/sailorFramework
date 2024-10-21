@@ -18,7 +18,7 @@ namespace SailorApp.Domain.DTO.SCM
         public Int64? event_id { get; set; }
         public Int64? fiscal_year_id { get; set; }
 
-        public dtsearch dtsearch { get; set; }
+        public dtsearch? dtsearch { get; set; }
 
 }
 }
