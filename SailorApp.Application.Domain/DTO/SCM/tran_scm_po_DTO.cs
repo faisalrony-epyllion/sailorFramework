@@ -10,6 +10,7 @@ namespace SailorApp.Domain.DTO.SCM
     {
         public int page_size { get; set; }
         public int row_index { get; set; }
+        public Int64 total_rows { get; set; }
         public Int64? po_id { get; set; }
         public string? po_no { get; set; }
         public string? pr_no { get; set; }
@@ -19,10 +20,11 @@ namespace SailorApp.Domain.DTO.SCM
         public string? event_title { get; set; }
         public Int64? supplier_id { get; set; }
         public Int64? delivery_unit { get; set; }
+        public Int64? delivery_unit_id { get; set; }
         public Int64? event_id { get; set; }
         public Int64? fiscal_year_id { get; set; }
-        public dtsearch? dtsearch { get; set; }
+       // public DtParameters? dtsearch { get; set; }
+        public DtSearch? dtSearch { get; set; }
 
-        
     }
 }

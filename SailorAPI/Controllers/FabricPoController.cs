@@ -1,15 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Sailor.Application.Interface;
-using Sailor.Infrastructure.Service.SCM;
+using SailorApp.Domain.DTO.DTParameter;
 using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SailorAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FabricPoController : ControllerBase
@@ -28,18 +26,24 @@ namespace SailorAPI.Controllers
         }
 
  
-        [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
-        {
+        //[HttpGet("GetAll")]
+        //public async Task<IActionResult> GetAll()
+        //{
 
-            var result = await _IFabricPoService.GetAll();  
-            return Ok(result);  
-        }
+        //    var result = await _IFabricPoService.GetAll();  
+        //    return Ok(result);  
+        //}
 
         [HttpGet("GetAllFabricPO")]
-        public async Task<IActionResult> GetAllFabricPo([FromQuery] tran_scm_po_DTO item)
+        public async Task<IActionResult> GetAllFabricPo([FromQuery] DtParameters item)
         {
-            var result = await _IFabricPoService.GetAllFabricsPoAsync(item);
+            var data = await _IFabricPoService.GetAllFabricsPoAsync(item);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            var totalRows = data.Any() ? data.First().total_rows : 0;
+            var result = new AjaxResponse(totalRows, data);
 
             return Ok(result);
         }

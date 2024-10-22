@@ -10,6 +10,7 @@ using SailorApp.Domain.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SailorApp.Domain.DTO.SCM;
+using SailorApp.Domain.DTO.DTParameter;
 
 namespace Sailor.Infrastructure.Service.SCM
 {
@@ -41,7 +42,7 @@ namespace Sailor.Infrastructure.Service.SCM
             return await _fabricPoRepository.GetAll(); 
         }
 
-        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(tran_scm_po_DTO obj)
+        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(DtParameters obj)
         {
             return await _fabricPoRepository.GetAllFabricsPoAsync(obj);
         }

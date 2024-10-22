@@ -1,4 +1,5 @@
-﻿using SailorApp.Domain.DTO.SCM;
+﻿using SailorApp.Domain.DTO.DTParameter;
+using SailorApp.Domain.DTO.SCM;
 using SailorApp.Domain.Entity.SCM;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace Sailor.Repository.Interface.SCM
 {
     public interface IFabricPoRepository : IRepository<tran_ScmPoEntity>
     {
-        Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(tran_scm_po_DTO obj);
+        Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(DtParameters obj);
     }
 }

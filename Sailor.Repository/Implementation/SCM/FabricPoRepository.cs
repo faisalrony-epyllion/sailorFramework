@@ -15,6 +15,7 @@ using NpgsqlTypes;
 using System.Data;
 using SailorApp.Domain.DTO.DTParameter;
 using SailorApp.Domain.DTO.SCM;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Sailor.Repository.Implementation.SCM
 {
@@ -55,7 +56,7 @@ namespace Sailor.Repository.Implementation.SCM
             }
         }
 
-        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(tran_scm_po_DTO obj)
+        public async Task<List<tran_scm_po_DTO>> GetAllFabricsPoAsync(DtParameters obj)
         {
             try
             {
@@ -69,25 +70,40 @@ namespace Sailor.Repository.Implementation.SCM
                     var dataList =await  connection.QueryAsync<tran_scm_po_DTO>(query,
                           new
                           {
-                              row_index = obj.row_index,
-                              page_size = obj.page_size,
+                              row_index = obj.Start,
+                              page_size = 10,
                               fiscal_year = obj.fiscal_year_id,
                               p_event_id = obj.event_id,
                               supplier = obj.supplier_id,
-                              p_delivery_unit_id = obj.delivery_unit,
+                              p_delivery_unit_id = obj.delivery_unit_id,
                               list_type = 0,
-                              search_text = obj.dtsearch?.Value ?? null
+                              search_text = obj.Search?.Value ?? null
                           }
-                         );
+                    );
 
-                    return dataList.ToList();
+                    var index = obj.Start + 1;
+                    var result = dataList.Select(t => new tran_scm_po_DTO
+                    {
+                        row_index = index++,
+                        po_id = t.po_id,
+                        po_no = t.po_no,
+                        po_date = t.po_date,
+                        supplier_name = t.supplier_name,
+                        unit_name = t.unit_name,
+                        pr_no = t.pr_no,
+                        event_title = t.event_title,
+                        total_rows= t.total_rows
+                     
+                    }).ToList();
 
+                    return result;
+                   
                 }
 
             }
             catch (Exception ex)
             {
-                throw new Exception("An error occurred while fetching data.", ex);
+                throw new Exception(ex.Message);
             }
 
         }
