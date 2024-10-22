@@ -42,8 +42,8 @@ namespace SailorAPI.Controllers
             {
                 return NotFound();
             }
-            var totalRows = data.Any() ? data.First().total_rows : 0;
-            var result = new AjaxResponse(totalRows, data);
+          
+            var result =  data.ToArray();
 
             return Ok(result);
         }
