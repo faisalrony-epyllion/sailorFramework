@@ -6,7 +6,7 @@ var Log = /** @class */ (function () {
     return Log;
 }());
 function LogPlus(p) {
-    console.log("".concat(p.x, ",").concat(p.y));
+    console.log(p.x + "," + p.y);
 }
 var p = new Log(10, 20);
 LogPlus(p);

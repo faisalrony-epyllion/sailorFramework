@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Sailor.Application.Interface;
 using SailorAPI.API.Extension;
+using SailorAPI.CustomMiddlwares;
 using System.Text;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +17,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddControllers();
 
-
+#region JWT authentication
 // Configure JWT authentication
 builder.Services.AddAuthentication(options =>
 {
@@ -82,8 +81,11 @@ builder.Services.AddCors(options =>
 
 });
 
+#endregion
+
 var app = builder.Build();
 
+#region Swagger
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -94,6 +96,11 @@ if (app.Environment.IsDevelopment())
          
     });
 }
+#endregion
+
+#region CustomMiddleware
+app.UseMiddleware<GlobalExceptionHandler>();
+#endregion
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
