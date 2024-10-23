@@ -39,31 +39,14 @@ namespace SailorApp.Domain.DTO.DTParameter
         }
     }
     public class DtParameters
-    {
-     //   public long? MasterID { get; set; }
-
-       // public bool? isView { get; set; }
-
-       // public string strMasterID { get; set; }
-
-      //  public string strSecondID { get; set; }
-
-     //   public long? FirstFilterID { get; set; }
-       // public long? SecondFilterID { get; set; }
-      //  public int Draw { get; set; }
-       // public DbColumn[] Columns { get; set; }
-      //  public DtOrder[] Order { get; set; }
+    { 
         public int Start { get; set; }
-        public int Length { get; set; } = 5000000;
+        public int Length { get; set; } = 500;
         public DtSearch? Search { get; set; }
-       // public string SortOrder => Columns != null && Order != null && Order.Length > 0 ? (Columns[Order[0].Column].DataType + (Order[0].Dir == DtOrderDir.Desc ? " " + Order[0].Dir : string.Empty)) : null;
-      //  public IEnumerable<string> AdditionalValues { get; set; }
         public Int64 fiscal_year_id { get; set; }
-
         public Int64 event_id { get; set; }
         public Int64 supplier_id { get; set; }
         public Int64 delivery_unit_id { get; set; }
-
         public string? search_text { get; }
     }
 
