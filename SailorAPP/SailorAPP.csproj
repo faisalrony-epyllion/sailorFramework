@@ -15,11 +15,22 @@
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Areas\SCM\Data\**" />
     <None Remove="Models\**" />
+    <TypeScriptCompile Remove="Areas\SCM\Data\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\SCM\Data\" />
-    <TypeScriptCompile Remove="Areas\SCM\Data\**" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Remove="C:\Users\nishad\.nuget\packages\bootstrap\4.6.2\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="scripts\FabricPO.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +43,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Scripts\SCM\app\" />
+    <Folder Include="Scripts\SCM\models\" />
+    <Folder Include="Scripts\SCM\services\" />
+    <Folder Include="wwwroot\ts\SCM\" />
   </ItemGroup>
 
 </Project>

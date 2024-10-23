@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SailorAPP.Areas.SCM.Model;
 
 namespace SailorAPP.Areas.SCM.Controllers
@@ -24,6 +25,17 @@ namespace SailorAPP.Areas.SCM.Controllers
             objCommonLandingGrid.TabNamesWithColumnNames.Add("Pending List", tableHeader);
            // objCommonLandingGrid.TabNamesWithColumnNames.Add("Submitted List", tableHeader);
             return View(objCommonLandingGrid);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+
+
+            
+
+            return View();
+
         }
     }
 }
