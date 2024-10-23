@@ -54,7 +54,7 @@ namespace SailorApp.Domain.DTO.DTParameter
        // public DbColumn[] Columns { get; set; }
       //  public DtOrder[] Order { get; set; }
         public int Start { get; set; }
-        public int Length { get; set; }
+        public int Length { get; set; } = 5000000;
         public DtSearch? Search { get; set; }
        // public string SortOrder => Columns != null && Order != null && Order.Length > 0 ? (Columns[Order[0].Column].DataType + (Order[0].Dir == DtOrderDir.Desc ? " " + Order[0].Dir : string.Empty)) : null;
       //  public IEnumerable<string> AdditionalValues { get; set; }

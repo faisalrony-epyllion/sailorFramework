@@ -952,27 +952,27 @@ var token='eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwMjEyNiIsIm5iZiI6MTcy
 function initialize_datatable(table) {
    
     dt_source = $(table.tableId).DataTable({
-        layout: {
-            top2End: {
-                search: {
-                    placeholder: table.placeholder,
-                },
-                buttons: [
-                    {
-                        text: table.btn_text,
-                        className: table.btn_class_name,
-                        action: function (e, dt, node, config) {
-                            $(table.filterId).val('');
-                            $(table.tableId).DataTable().search('').draw();
-                        }
-                    }
-                ]
-            },
-            topEnd: null,
-        },
-        search: {
-            return: true
-        },
+        //layout: {
+        //    top2End: {
+        //        search: {
+        //            placeholder: table.placeholder,
+        //        },
+        //        buttons: [
+        //            {
+        //                text: table.btn_text,
+        //                className: table.btn_class_name,
+        //                action: function (e, dt, node, config) {
+        //                    $(table.filterId).val('');
+        //                    $(table.tableId).DataTable().search('').draw();
+        //                }
+        //            }
+        //        ]
+        //    },
+        //    topEnd: null,
+        //},
+        //search: {
+        //    return: true
+        //},
         "ajax": {
             url: table.ajax_url,
             type: "GET",
@@ -986,6 +986,8 @@ function initialize_datatable(table) {
             }
         },
         scrollCollapse: true,
+        pageLength: 10,
+        lengthMenu: [5, 10, 25, 50],
         responsive: true,
         "jQueryUI": true,
         columnDefs: buildColumn_def(table.columns.length, table.hideFirstColumn),

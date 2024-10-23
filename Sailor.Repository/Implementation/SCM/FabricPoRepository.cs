@@ -67,7 +67,7 @@ namespace Sailor.Repository.Implementation.SCM
                           new
                           {
                               row_index = obj.Start,
-                              page_size = 10,
+                              page_size = obj.Length,
                               fiscal_year = obj.fiscal_year_id,
                               p_event_id = obj.event_id,
                               supplier = obj.supplier_id,
