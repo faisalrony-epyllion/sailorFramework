@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "Fabric PO";
+ 
+}
+<div class="row">
+
+    @* <input type="hidden" id="item_structure_group_id" value="@Model.item_structure_group_id" /> *@
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Po No</label>
+                    <input style="width:100%" readonly placeholder="Auto Generated" id="po_no" type="text" class="border-#d1cccc-200 form-control " />
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Po Date</label><span style="color: red; font-weight: bold;">*</span>
+                    <input style="width:100%" id="po_date" type="date" class="border-#d1cccc-200 form-control" />
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Delivery Start Date</label><span style="color: red; font-weight: bold;">*</span>
+                    <input style="width:100%" id="delivery_start_date" type="date" class="border-#d1cccc-200 form-control" />
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Delivery End Date</label><span style="color: red; font-weight: bold;">*</span>
+                    <input style="width:100%" id="delivery_end_date" type="date" class="border-#d1cccc-200 form-control" />
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom:10px!important;font-weight:bold;">Purchase Requisition</label><span style="color: red; font-weight: bold;">*</span>
+    @*                 @await Component.InvokeAsync("S2PRFabric", new
+                        {
+                            ddlId = "pr_id",
+                            selectedvalue = "",
+                            cssclass = "form-control S2TranPurchaseRequisition",
+                            isRequired = false,
+                            isReadOnly = false,
+                            placeholder = "Select PR",
+                            preloaded = "",
+                            model_parentid = "addID"
+                        }) *@
+                   
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Techpack</label>
+                    <input style="width:100%" readonly id="techpack_number" type="text" class="border-#d1cccc-200 form-control" />
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Suggested Supplier</label>
+                    <input style="width:100%" readonly id="suggested_supplier_name" type="text" class="border-#d1cccc-200 form-control" />
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Delivery Unit</label>
+                    <input style="width:100%" readonly id="delivery_unit_name" type="text" class="border-#d1cccc-200 form-control" />
+
+                    <input type="hidden" id="delivery_unit_id1" value="">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Select Supplier</label><span style="color: red; font-weight: bold;">*</span>
+             @*        @await Component.InvokeAsync("S2GenSupplier", new
+                        {
+                            ddlId = "supplier_id",
+                            selectedvalue = "",
+                            cssclass = "form-control S2GenSupplier",
+                            isRequired = false,
+                            isReadOnly = false,
+                            placeholder = "Select Supplier",
+                            preloaded = "",
+                            model_parentid = "addID"
+                        }) *@
+ 
+
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <label class="labelNormal" style="margin-bottom: 10px!important;font-weight:bold;">Concern Person</label><span style="color: red; font-weight: bold;">*</span>
+                <select id="supplier_concern_person" name="supplier_concern_person" class="form-control">
+                    <option value="">Select Concern Person</option>
+                </select>
+               
+            </div>
+
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="labelNormal " style="margin-bottom: 10px!important;font-weight:bold;">Supplier Address</label>
+                    <input style="width:100%" id="supplier_address" type="text" class="form-control border-#d1cccc-200 rounded-sm text-sm" readonly />
+                   
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="col-md-6">
+        <input type="file" style="display:none" id="attachments" multiple />
+
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-danger " id="btnUpload" onclick="uploadFile(this);">
+                        Select File to Upload
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <div id="fileNamesContainer"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

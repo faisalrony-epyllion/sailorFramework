@@ -12,9 +12,39 @@
 
     });
 
+    function AddFabricPo() {
 
+        $("#createOredit").show();
+        $("#list").hide();
+    
+    }
+    function backtoList() {
 
+        $("#createOredit").hide();
+        $("#list").show();
+
+    }
 </script>
-<div class="list">
-    @await Html.PartialAsync("~/Shared/_CommonDatatable.cshtml", Model)
+
+
+<div id="list">
+    <div class="row justify-content-end">
+        <button type="button" class="btn btn-primary" onclick="AddFabricPo();" style="margin-left: 0px;width:150px;"><i class="fa fa-save"></i>&nbsp;&nbsp;Add </button>
+    </div>
+ 
+        @await Html.PartialAsync("~/Shared/_CommonDatatable.cshtml", Model)
+    
+
+
 </div>
+
+<div id="createOredit" style="display:none" class="col-md-11">
+    <div class="row justify-content-end">
+        <button type="button" class="btn btn-danger" onclick="backtoList();" style="margin-left: 0px;width:150px;"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Back </button>
+    </div>
+    <br />
+    @await Html.PartialAsync("~/Areas/SCM/Views/FabricPO/Create.cshtml", Model)
+  
+</div>
+
+

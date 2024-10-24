@@ -1,11 +1,11 @@
-﻿FabricPo = {
+FabricPo = {
     form: 595.28,
     cache_width: 841.89,
     a4: 841.89,
     listAttachments: [],
     added_listFPo: [],
     DeleteList: [],
-   
+
 
 
     closePopup: function () {
@@ -27,7 +27,7 @@
             }, 0);
 
             $('.addView').html(data);
-           // $('#modalcontainer').modal({ backdrop: 'static', keyboard: false });
+            // $('#modalcontainer').modal({ backdrop: 'static', keyboard: false });
             //$('#modalcontainer').modal("show");
             $(".addView .S2GenSupplier").val(null).trigger('change.select2');
             $(".addView .S2TranPurchaseRequisition").val(null).trigger('change.select2');
@@ -200,11 +200,11 @@
     },
 
     EditFabricPo: function (btn) {
-        
+
         listAttachments = [];
         added_listFPo = [];
         var po_id = $(btn).attr("po_id");
-        
+
         setTimeout(function () {
             showloader("loading..........");
         }, 0);
@@ -216,15 +216,15 @@
                 //    hideLoader();
                 //}, 0);
                 $('.addView').html(data);
-               // $('#modalcontent').html(data);
-               // $('#modalcontainer').modal({ backdrop: 'static', keyboard: false });
-               // $('#modalcontainer').modal("show");
+                // $('#modalcontent').html(data);
+                // $('#modalcontainer').modal({ backdrop: 'static', keyboard: false });
+                // $('#modalcontainer').modal("show");
 
                 $(".addView .S2GenSupplier").val(null).trigger('change.select2');
 
                 $.each($("#DTTermANdConditionDetailsEdit tbody tr"), function (key, val) {
 
-                     added_listFPo.push(parseInt($(this).find(".gen_term_and_conditions_details_id").text().trim()));
+                    added_listFPo.push(parseInt($(this).find(".gen_term_and_conditions_details_id").text().trim()));
 
 
                 });
@@ -299,8 +299,8 @@
                 }, 0);
 
                 $('.addView').html(data);
-               // $('#modalcontainer').modal({ backdrop: 'static', keyboard: false });
-               // $('#modalcontainer').modal("show");
+                // $('#modalcontainer').modal({ backdrop: 'static', keyboard: false });
+                // $('#modalcontainer').modal("show");
 
             });
 
@@ -597,8 +597,8 @@
         });
     },
 
-   
-    
+
+
 
     LoadFabricPoData: function () {
         debugger;
@@ -616,9 +616,9 @@
             btn_text: 'Clear Search',
             ajax_url: 'https://localhost:7102/api/FabricPo/GetAllFabricPO', 
             input: input,
-            
-           
-            
+
+
+
             createdRow_func: function (row, data, dataIndex) {
                 $(row).attr('row_index', parseInt(data.row_index) - 1);
                 $(row).attr("po_id", data.po_id);
@@ -653,7 +653,7 @@
             tableId: "#dtSubmittedList",
             placeholder: 'Search PO',
             btn_text: 'Clear Search',
-            ajax_url: '/FabricPo/GetFabricPoSubmittedData',
+            ajax_url: 'https://localhost:7102/api/FabricPo/GetAll',
             input: input,
             hideFirstColumn: false,
             createdRow_func: function (row, data, dataIndex) {
@@ -791,15 +791,15 @@
         $('#finalToPrice').val(finalTotal.toFixed(2));
     }
 
-   
+
 }
 
 
 
-$(function () {       
+$(function () {
 
-    
-     
+
+
 
     FabricPo.LoadFabricPoData();
 
