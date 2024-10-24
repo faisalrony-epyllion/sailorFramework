@@ -25,15 +25,6 @@ namespace SailorAPI.Controllers
             
         }
 
- 
-        //[HttpGet("GetAll")]
-        //public async Task<IActionResult> GetAll()
-        //{
-
-        //    var result = await _IFabricPoService.GetAll();  
-        //    return Ok(result);  
-        //}
-
         [HttpGet("GetAllFabricPO")]
         public async Task<IActionResult> GetAllFabricPo([FromQuery] DtParameters item)
         {
@@ -51,7 +42,6 @@ namespace SailorAPI.Controllers
         [HttpGet("GetPageWiseData")]
         public async Task<IActionResult> GetPagination([FromQuery] tran_ScmPoEntity obj)
         {
-          
             var result = await _IFabricPoService.GetPagination(obj);
             return Ok(result);
         }

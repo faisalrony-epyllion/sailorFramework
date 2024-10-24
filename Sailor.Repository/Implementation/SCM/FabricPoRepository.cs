@@ -57,13 +57,12 @@ namespace Sailor.Repository.Implementation.SCM
             try
             {
                 string query = "SELECT * FROM public.proc_sp_get_data_tran_scm_po_fab( @row_index,@page_size,@fiscal_year,@p_event_id,@supplier,@p_delivery_unit_id,@list_type,@search_text)";
-              
+
                 using (var connection = new NpgsqlConnection(_connectionString))
                 {
                     await connection.OpenAsync();
 
-                   
-                    var dataList =await  connection.QueryAsync<tran_scm_po_DTO>(query,
+                    var dataList = await connection.QueryAsync<tran_scm_po_DTO>(query,
                           new
                           {
                               row_index = obj.Start,
@@ -77,25 +76,9 @@ namespace Sailor.Repository.Implementation.SCM
                           }
                     );
 
-                    var index = obj.Start + 1;
-                    var result = dataList.Select(t => new tran_scm_po_DTO
-                    {
-                        row_index = index++,
-                        po_id = t.po_id,
-                        po_no = t.po_no,
-                        po_date = t.po_date,
-                        supplier_name = t.supplier_name,
-                        unit_name = t.unit_name,
-                        pr_no = t.pr_no,
-                        event_title = t.event_title,
-                        total_rows= t.total_rows
-                     
-                    }).ToList();
+                  return dataList.ToList();
 
-                    return result;
-                   
-                }
-
+              }
             }
             catch (Exception ex)
             {

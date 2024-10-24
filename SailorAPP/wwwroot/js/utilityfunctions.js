@@ -987,7 +987,7 @@ function initialize_datatable(table) {
         },
         scrollCollapse: true,
         pageLength: 10,
-        lengthMenu: [5, 10, 25, 50],
+        lengthMenu: [10, 25, 50, 100],
         responsive: true,
         "jQueryUI": true,
         columnDefs: buildColumn_def(table.columns.length, table.hideFirstColumn),
@@ -996,6 +996,7 @@ function initialize_datatable(table) {
             ...col,
             className: col.className || ''
         })),
+        order: [[0, 'desc']]
     });
 }
 
