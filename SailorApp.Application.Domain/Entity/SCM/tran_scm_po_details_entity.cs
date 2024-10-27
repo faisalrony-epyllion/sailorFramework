@@ -48,4 +48,6 @@ namespace SailorApp.Domain.Entity.SCM
         public string? measurement_unit { get; set; }
         public string? del_chalan_no { get; set; }
     }
+
+  
 }

@@ -24,11 +24,12 @@ namespace Sailor.Infrastructure.Service.SCM
             _fabricPoRepository = fabricPoRepository;
             
         }
-
-       
+    
         public async Task Add(tran_ScmPoEntity item)
         {
             item.po_details = JArray.Parse(JsonConvert.SerializeObject(item.List_po_details)).ToString();
+            item.terms_conditions = JArray.Parse(JsonConvert.SerializeObject(item.terms_conditions_list)).ToString();
+            item.documents=JArray.Parse(JsonConvert.SerializeObject(item.files)).ToString();
             await _fabricPoRepository.Add(item);
         }
 

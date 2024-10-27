@@ -69,8 +69,21 @@ namespace SailorApp.Domain.Entity.SCM
         public string supplier_address { get; set; }
         public string? status_remarks { get; set; }
         public List<tran_scm_po_details_entity> List_po_details { get; set; }
-
-
+        public List<TermConditionDetail> terms_conditions_list { get; set; }
+        public List<file_upload> files { get; set; }
 
     }
+
+    public class TermConditionDetail
+    {
+        public Int64 gen_term_and_conditions_details_id { get; set; }
+        public Int64? gen_term_and_conditions_id { get; set; }
+        public string term_condition_name { get; set; }
+        public string? description { get; set; }
+    }
+    public class file_upload
+    {
+        public string filename { get; set; }
+    }
+
 }
