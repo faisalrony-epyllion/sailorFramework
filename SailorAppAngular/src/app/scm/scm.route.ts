@@ -12,7 +12,7 @@ import { MainLayoutComponent } from '../shared/layouts/main-layout/main-layout.c
 
   export const scmroutes: Routes = [  
     {
-      path: '',
+      path: 'scm',
       component: MainLayoutComponent,
       children: [
         { path: 'ackPR', component: AcknowledgePRComponent },
