@@ -328,3 +328,10 @@ project.lock.json
 .DS_Store
 /SailorAppAngular/node_modules
 /SailorAngularApp
+/SailorAppAngular/.angular/cache/17.3.11/vite/deps
+/SailorAppAngular/.angular/cache/17.3.11/adminltesample/.tsbuildinfo
+/SailorAppAngular/.angular/cache/17.3.11
+/SailorAppAngular/dist/adminltesample/browser
+/SailorAppAngular/dist/adminltesample/server
+/SailorAppAngular/dist/adminltesample/3rdpartylicenses.txt
+/SailorAppAngular/dist/adminltesample/prerendered-routes.json
