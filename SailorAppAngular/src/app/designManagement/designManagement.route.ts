@@ -15,7 +15,7 @@ import { OpenPRApprovalComponent } from './open-prapproval/open-prapproval.compo
 
   export const designManagementroutes: Routes = [  
     {
-      path: '',
+      path: 'deesignManagement',
       component: MainLayoutComponent,
       children: [
         { path: 'sampleOrder', component: SampleOrderComponent },
