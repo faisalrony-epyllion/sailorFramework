@@ -9,5 +9,5 @@ import { GridComponentComponent } from '../../shared/common/grid-component/grid-
   styleUrl: './fabric.component.css'
 })
 export class FabricComponent {
-  currentItem = 'Television';
+  currentItem:any = 'Television';
 }
