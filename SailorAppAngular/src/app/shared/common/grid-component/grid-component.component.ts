@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grid-component',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './grid-component.component.css'
 })
 export class GridComponentComponent {
-
+  @Input() item = ''; // decorate the property with @Input()
 }
+
