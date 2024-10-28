@@ -12,7 +12,7 @@ import { businessPlanroutes } from './businessPlan/businessPlan.route';
 
   export const routes: Routes = [  
    
-    { path: '', component: BodyComponent },
+    ...userroutes,
     ...scmroutes
   ];
 
