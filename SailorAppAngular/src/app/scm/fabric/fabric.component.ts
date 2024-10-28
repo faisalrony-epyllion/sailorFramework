@@ -2,7 +2,8 @@ import { Component, OnInit,inject} from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { GridComponentComponent } from '../../shared/common/grid-component/grid-component.component';
 import { CommonModule } from '@angular/common';
-import { PoEntity } from '../../scm/fabric/fabricModel';
+import { PoEntity } from '../../scm/Model/fabricModel';
+import { ScmServiceService  } from '../../scm/service/scm-service.service';
 
 
 @Component({
@@ -15,20 +16,23 @@ import { PoEntity } from '../../scm/fabric/fabricModel';
 export class FabricComponent {
   
   public poData: PoEntity[] = []
-  public apiUrl: string = 'https://localhost:7102/api/FabricPo/GetAllFabricPO';
   isShowSaveButton = false;
   isShowUpdateBtn = false;
   public headTitle: string = 'Fabric PO Data.';
  
   private http = inject(HttpClient);
+  constructor (private  service:ScmServiceService){}
+
   ngOnInit() {
     this.getFabricPO();
   }
   dispalyStyle = "none";
 
+  
+
   getFabricPO() {
     debugger;
-    this.http.get<PoEntity[]>(this.apiUrl).subscribe(
+    this.service.getFabicPO().subscribe(
       (result) => {
         this.poData = result;
         
