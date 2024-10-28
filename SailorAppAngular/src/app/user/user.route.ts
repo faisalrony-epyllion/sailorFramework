@@ -5,11 +5,8 @@ import { FooterOnlyLayoutComponent } from '../shared/layouts/footer-only-layout/
 
   export const userroutes: Routes = [  
     {
-      path: '',
-      component: FooterOnlyLayoutComponent,
-      children: [
-        { path: '', component: LoginComponent },
-      ]
+      path: '',component: FooterOnlyLayoutComponent,
+      children: [{ path: '', component: LoginComponent },]
     }
     
     
