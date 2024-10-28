@@ -327,4 +327,3 @@ project.lock.json
 # Ignore macOS files
 .DS_Store
 /SailorAngularApp
-/SailorAppAngular/node_modules
