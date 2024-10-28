@@ -5,6 +5,9 @@ import { userroutes } from './user/user.route';
 import { businessPlanroutes } from './businessPlan/businessPlan.route';
 import { rangePlanroutes } from './rangePlan/rangePlan.route';
 import { planningAndAllocationroutes } from './planningAndAllocation/planningAndAllocation.route';
+import { designManagementroutes } from './designManagement/designManagement.route';
+import { merchandisingManagementroutes } from './merchandisingMgt/merchandisingMgt.route';
+import { mcdroutes } from './mcd/mcd.route';
  
  
 
@@ -13,7 +16,14 @@ import { planningAndAllocationroutes } from './planningAndAllocation/planningAnd
 
   export const routes: Routes = [  
    
-    ...userroutes,...businessPlanroutes,...rangePlanroutes,...planningAndAllocationroutes,...scmroutes
+    ...userroutes,
+    ...businessPlanroutes,
+    ...rangePlanroutes,
+    ...planningAndAllocationroutes,
+    ...designManagementroutes,
+    ...merchandisingManagementroutes,
+    ...scmroutes,
+    ...mcdroutes
   ];
 
 

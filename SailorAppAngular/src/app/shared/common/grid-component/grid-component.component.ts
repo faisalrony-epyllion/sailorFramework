@@ -1,13 +1,15 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-grid-component',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './grid-component.component.html',
   styleUrl: './grid-component.component.css'
 })
 export class GridComponentComponent {
-  @Input() item = ''; // decorate the property with @Input()
+  @Input() items: any = [];
+  @Input() header: string = '';
 }
 
