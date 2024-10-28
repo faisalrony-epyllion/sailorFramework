@@ -7,6 +7,7 @@ import { AccessoriesComponent } from './accessories/accessories.component';
    
      
     { path: 'fabric', component: FabricComponent },
+    
     { path: 'accessories', component: AccessoriesComponent },
     
   ];
