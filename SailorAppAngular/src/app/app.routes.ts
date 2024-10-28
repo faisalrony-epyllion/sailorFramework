@@ -13,7 +13,7 @@ import { planningAndAllocationroutes } from './planningAndAllocation/planningAnd
 
   export const routes: Routes = [  
    
-    ...userroutes,...businessPlanroutes,...rangePlanroutes,...planningAndAllocationroutes,...scmroutes,
+    ...userroutes,...businessPlanroutes,...rangePlanroutes,...planningAndAllocationroutes,...scmroutes
   ];
 
 
