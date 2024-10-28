@@ -5,41 +5,41 @@
           <ul class="nav side-menu">
             
 
-            <li><a><i class="fa fa-home"></i> Business Plan <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="@yield('menu_member') fa fa-home"></i> Business Plan <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a routerLink="/businessPalnAdd" routerLinkActive="active" ariaCurrentWhenActive="page">Add/Submission</a></li>
-                <li><a routerLink="/businessPalnApproval" routerLinkActive="active" ariaCurrentWhenActive="page">Approval</a></li>
+                <li><a class="@yield('menu_create_member')" routerLink="/businessPalnAdd"  >Add/Submission</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/businessPalnApproval"  >Approval</a></li>
                 
               </ul>
             </li>
 
             <li><a><i class="fa fa-home"></i> Range Paln <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a routerLink="/rangePalnAdd" routerLinkActive="active" ariaCurrentWhenActive="page">Add/Submission</a></li>
-                <li><a routerLink="/rangePalnApproval" routerLinkActive="active" ariaCurrentWhenActive="page">Approval</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/rangePalnAdd"  >Add/Submission</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/rangePalnApproval"  >Approval</a></li>
                
               </ul>
             </li>
 
             <li><a><i class="fa fa-home"></i> Planning & Allocation <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a routerLink="/styleBreakdown" routerLinkActive="active" ariaCurrentWhenActive="page">Style Breakdown</a></li>
-                <li><a routerLink="/styleBreakApproval" routerLinkActive="active" ariaCurrentWhenActive="page">Style Break Approval</a></li>
-                <li><a routerLink="/designerDistribution" routerLinkActive="active" ariaCurrentWhenActive="page">Designer Distributionj</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/styleBreakdown"  >Style Breakdown</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/styleBreakApproval"  >Style Break Approval</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/designerDistribution"  >Designer Distributionj</a></li>
                 
               </ul>
             </li>
 
             <li><a><i class="fa fa-home"></i> SCM <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a routerLink="/scm/ackPR" routerLinkActive="active" ariaCurrentWhenActive="page">Acknowledge PR</a></li>
-                <li><a routerLink="/scm/fabric" routerLinkActive="active" ariaCurrentWhenActive="page">Fabric PO</a></li>
-                <li><a routerLink="/scm/accessories" routerLinkActive="active" ariaCurrentWhenActive="page">Accessories Po</a></li>
-                <li><a routerLink="/scm/poApproval" routerLinkActive="active" ariaCurrentWhenActive="page">Po Approval</a></li>
-                <li><a routerLink="/scm/openPo" routerLinkActive="active" ariaCurrentWhenActive="page">Open Po</a></li>
-                <li><a routerLink="/scm/openPoApproval" routerLinkActive="active" ariaCurrentWhenActive="page">Open Po Approval</a></li>
-                <li><a routerLink="/scm/billSubmission" routerLinkActive="active" ariaCurrentWhenActive="page">Bill Submission</a></li>
-                <li><a routerLink="/scm/billApproval" routerLinkActive="active" ariaCurrentWhenActive="page">Bill Approval</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/ackPR"  >Acknowledge PR</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/fabric"  >Fabric PO</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/accessories"  >Accessories Po</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/poApproval"  >Po Approval</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/openPo"  >Open Po</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/openPoApproval"  >Open Po Approval</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/billSubmission"  >Bill Submission</a></li>
+                <li><a  class="@yield('menu_create_member')" routerLink="/scm/billApproval"  >Bill Approval</a></li>
               </ul>
             </li>
             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
@@ -134,4 +134,5 @@
       </div>
       <!-- /sidebar menu -->
 
-    
+
+      
