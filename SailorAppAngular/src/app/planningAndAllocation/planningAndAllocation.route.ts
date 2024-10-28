@@ -9,7 +9,7 @@ import { MainLayoutComponent } from '../shared/layouts/main-layout/main-layout.c
 
   export const planningAndAllocationroutes: Routes = [ 
     {
-      path: '',
+      path: 'planningAndAllocation',
       component: MainLayoutComponent,
       children: [
         { path: 'styleBreakdown', component: StyleBreakDownComponent  },

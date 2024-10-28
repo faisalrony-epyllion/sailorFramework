@@ -7,7 +7,7 @@ import { MainLayoutComponent } from '../shared/layouts/main-layout/main-layout.c
 
   export const rangePlanroutes: Routes = [  
     {
-      path: '',
+      path: 'rangePlan',
       component: MainLayoutComponent,
       children: [
         { path: 'rangePalnAdd', component:  RangePlanAddComponent },

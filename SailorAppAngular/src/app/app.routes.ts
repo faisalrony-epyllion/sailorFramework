@@ -6,6 +6,7 @@ import { businessPlanroutes } from './businessPlan/businessPlan.route';
 import { rangePlanroutes } from './rangePlan/rangePlan.route';
 import { planningAndAllocationroutes } from './planningAndAllocation/planningAndAllocation.route';
 import { designManagementroutes } from './designManagement/designManagement.route';
+import { merchandisingManagementroutes } from './merchandisingMgt/merchandisingMgt.route';
  
  
 
@@ -19,6 +20,7 @@ import { designManagementroutes } from './designManagement/designManagement.rout
     ...rangePlanroutes,
     ...planningAndAllocationroutes,
     ...designManagementroutes,
+    ...merchandisingManagementroutes,
     ...scmroutes,
   ];
 
