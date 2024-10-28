@@ -43,10 +43,10 @@ namespace SailorApp.Domain.DTO.DTParameter
         public int Start { get; set; }
         public int Length { get; set; } = 500;
         public DtSearch? Search { get; set; }
-        public Int64 fiscal_year_id { get; set; }
-        public Int64 event_id { get; set; }
-        public Int64 supplier_id { get; set; }
-        public Int64 delivery_unit_id { get; set; }
+        public Int64 fiscal_year_id { get; set; } = 1;
+        public Int64 event_id { get; set; } = 9;
+        public Int64 supplier_id { get; set; } = 0;
+        public Int64 delivery_unit_id { get; set; } = 0;
         public string? search_text { get; }
     }
 
