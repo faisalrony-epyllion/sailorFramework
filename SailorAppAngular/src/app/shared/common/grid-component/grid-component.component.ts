@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class GridComponentComponent {
   @Input() items: any = [];
-  @Input() header: string = '';
+  @Input() title: string = '';
+  @Input() dynamicHeader: { key: string; label: string }[] = [];
 }
 
