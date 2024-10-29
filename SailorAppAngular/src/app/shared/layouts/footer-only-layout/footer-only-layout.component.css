@@ -1,0 +1,9 @@
+:host {
+    display: block;
+    height: 100vh;
+    overflow: hidden; /* Ensures no internal scrolling */
+    background-image:url(/assets/images/sailor_dhan_01_n.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
