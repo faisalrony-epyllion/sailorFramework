@@ -15,7 +15,7 @@ import { FabricAlcReqApproveComponent } from './fabric-alc-req-approve/fabric-al
 
   export const merchandisingManagementroutes: Routes = [ 
     {
-      path: 'merchandisingMgt',
+      path: '',
       component: MainLayoutComponent,
       children: [
         { path: 'techpackArk', component: TechPackAckComponent  },
