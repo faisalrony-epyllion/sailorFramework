@@ -16,7 +16,7 @@ import { FloorReturnAckComponent } from './floor-return-ack/floor-return-ack.com
 
   export const mcdroutes: Routes = [ 
     {
-      path: 'mcd',
+      path: '',
       component: MainLayoutComponent,
       children: [
         { path: 'itemReceiveAndInspection', component: ItemReceiveAndInspectionComponent  },
