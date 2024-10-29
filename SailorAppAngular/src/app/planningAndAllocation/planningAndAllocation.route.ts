@@ -18,9 +18,7 @@ import { MainLayoutComponent } from '../shared/layouts/main-layout/main-layout.c
       ]
     } 
    
-     
-   
-    
+
     
   ];
 
