@@ -7,7 +7,7 @@ import { MainLayoutComponent } from '../shared/layouts/main-layout/main-layout.c
 
   export const businessPlanroutes: Routes = [  
     {
-      path: 'businessPlan',
+      path: '',
       component: MainLayoutComponent,
       children: [
         { path: 'businessPalnAdd', component:  BusinessPlanAddComponent },
