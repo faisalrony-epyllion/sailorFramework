@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using Sailor.Application.Interface;
 using Sailor.Repository.Helper;
 using Sailor.Repository.Interface.USER;
 using SailorApp.Domain.DTO.SCM;
@@ -52,7 +53,40 @@ namespace Sailor.Repository.Implementation.USER
             }
         }
 
+        Task IService<owin_user_DTO>.Add(owin_user_DTO item)
+        {
+            throw new NotImplementedException();
+        }
 
+        Task IService<owin_user_DTO>.Delete(owin_user_DTO item)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<owin_user_DTO>> IService<owin_user_DTO>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<owin_user_DTO> IService<owin_user_DTO>.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<owin_user_DTO>> IService<owin_user_DTO>.GetPagination(owin_user_DTO item)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<owin_user_DTO> IUserRepository.GetSingleAsync(owin_user_DTO username)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IService<owin_user_DTO>.Update(owin_user_DTO item)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 ﻿namespace Sailor.Application.Interface
 {
-    public interface IService<T> 
+    public interface IService<T> where T : class
     {
         Task Add(T item);
 
