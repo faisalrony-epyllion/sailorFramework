@@ -1,11 +1,11 @@
-import { Component, OnInit,inject} from '@angular/core';
+import { Component, OnInit,inject,AfterViewInit} from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { GridComponentComponent } from '../../shared/common/grid-component/grid-component.component';
 import { CommonModule } from '@angular/common';
-import { PoEntity } from '../../scm/Model/fabricModel';
+import { PoEntity,dynamicHeader } from '../../scm/Model/fabricModel';
 import { ScmServiceService  } from '../../scm/service/scm-service.service';
 
-
+declare var $: any;
 @Component({
   selector: 'app-fabric',
   standalone: true,
@@ -16,9 +16,11 @@ import { ScmServiceService  } from '../../scm/service/scm-service.service';
 export class FabricComponent {
   
   public poData: PoEntity[] = []
+  public tableHeaders = dynamicHeader;
+  public headTitle: string = 'Fabric PO Data.';
   isShowSaveButton = false;
   isShowUpdateBtn = false;
-  public headTitle: string = 'Fabric PO Data.';
+  
  
   private http = inject(HttpClient);
   constructor (private  service:ScmServiceService){}
@@ -28,20 +30,25 @@ export class FabricComponent {
   }
   dispalyStyle = "none";
 
-  
-
   getFabricPO() {
-    debugger;
     this.service.getFabicPO().subscribe(
       (result) => {
         this.poData = result;
-        
+        this.initializeDataTable();
       },
       (error) => {
         console.error(error);
       }
     )
   }
+
+  initializeDataTable() {
+    $('#datatable-responsive').DataTable({
+      paging: true,
+      searching: true,
+      responsive: true
+    });
+}
 
 
 }
