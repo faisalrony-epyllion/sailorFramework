@@ -34,11 +34,7 @@ namespace Sailor.Repository.Implementation.SCM
         {
             throw new NotImplementedException();
         }
-
-        public tran_ScmPoEntity Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+ 
 
         public async Task<IEnumerable<tran_ScmPoEntity>> GetAll()
         {
