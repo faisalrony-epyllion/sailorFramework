@@ -4,6 +4,8 @@ import { GridComponentComponent } from '../../shared/common/grid-component/grid-
 import { CommonModule } from '@angular/common';
 import { PoEntity,dynamicHeader } from '../../scm/Model/fabricModel';
 import { ScmServiceService  } from '../../scm/service/scm-service.service';
+import { catchError, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 declare var $: any;
 @Component({
@@ -30,16 +32,31 @@ export class FabricComponent {
   }
   dispalyStyle = "none";
 
+  // getFabricPO() {
+  //   debugger;
+  //   this.service.getFabicPO().subscribe(
+  //     (result) => {
+  //       this.poData = result;
+  //       this.initializeDataTable();
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   )
+  // }
+
   getFabricPO() {
-    this.service.getFabicPO().subscribe(
-      (result) => {
+    debugger;
+    this.service.getFabicPO().pipe(
+      tap((result) => {
         this.poData = result;
-        this.initializeDataTable();
-      },
-      (error) => {
-        console.error(error);
-      }
-    )
+      }),
+      tap(() => this.initializeDataTable()), 
+      catchError((error) => {
+        console.error('Error fetching Fabric PO data:', error);
+        return of([]); 
+      })
+    ).subscribe();
   }
 
   initializeDataTable() {
