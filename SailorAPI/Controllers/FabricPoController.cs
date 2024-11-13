@@ -22,6 +22,7 @@ namespace SailorAPI.Controllers
         {
             _logger = logger;
             _IFabricPoService = FabricPo;
+
             
         }
 
