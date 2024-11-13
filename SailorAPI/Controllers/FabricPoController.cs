@@ -16,14 +16,14 @@ namespace SailorAPI.Controllers
 
         private readonly ILogger<FabricPoController> _logger;
         private IFabricPoService _IFabricPoService;
-       
+
 
         public FabricPoController(ILogger<FabricPoController> logger, IFabricPoService FabricPo)
         {
             _logger = logger;
             _IFabricPoService = FabricPo;
 
-            
+        }
     
 
         [HttpGet("GetAllFabricPO")]
