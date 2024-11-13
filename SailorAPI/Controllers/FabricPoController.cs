@@ -24,7 +24,7 @@ namespace SailorAPI.Controllers
             _IFabricPoService = FabricPo;
 
             
-        }
+    
 
         [HttpGet("GetAllFabricPO")]
         public async Task<IActionResult> GetAllFabricPo([FromQuery] DtParameters item)
