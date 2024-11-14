@@ -23,7 +23,7 @@ namespace SailorAPI.Controllers
             _logger = logger;
             _IFabricPoService = FabricPo;
 
-      
+        }
     
 
         [HttpGet("GetAllFabricPO")]
